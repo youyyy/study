@@ -107,10 +107,38 @@ import java.util.regex.PatternSyntaxException;
  * @see     java.nio.charset.Charset
  * @since   JDK1.0
  */
-
+/*
+ * 从JDK9开始，String对象不再以char[]形式存储，而是以名为value的byte[]形式存储。
+ *
+ * value有一个名为coder的编码标记，该标记有两种取值：LATIN1和UTF-16（UTF-16使用大端法还是小端法取决于系统）。
+ *
+ * Java中存储String的byte数组的默认编码是LATIN1（即ISO-8859-1）和UTF16。
+ *
+ * String由一系列Unicode符号组成，根据这些符号的Unicode编码范围[0x0, 0x10FFFF]，将其分为两类：
+ *   符号1. 在[0x0, 0xFF]范围内的符号（属于LATIN1/ISO_8859_1字符集范围）
+ *   符号2. 在其他范围内的Unicode符号
+ * 对于第一类符号，其二进制形式仅用一个byte即可容纳，对于第二类符号，其二进制形式需用两个或四个UTF-16形式的byte存储。
+ *
+ * 由此，JDK内部将String的存储方式也分为两类：
+ *   第一类：String只包含符号1。这种类型的String里，每个符号使用一个byte存储。coder==LATIN1
+ *   第二类：String包含第二类符号。这种类型的String里，每个符号使用两个或四个UTF-16形式的byte存储（即使遇到符号1也使用两个byte存储）。coder==UTF16
+ *
+ * 为了便于后续描述这两类字符串，此处将第一类字符串称为LATIN1-String，将第二类字符串称为UTF16-String。
+ *
+ * 另注：
+ * 鉴于windows中以小端法存储数据，所以存储String的字节数组value也以UTF16小端法显示。
+ * 在后续的动态操作中，会将String转换为其他的编码（例如UTF_8、ISO_8859_1、US_ASCII、GBK等）形式。
+ * 如果不另指定编码形式，则以JVM的当前默认的字符集为依据去转换String。
+ *
+ * ★ 关于大端小端：
+ * 1.char永远是UTF-16大端
+ * 2.String（内置的value）永远取决于系统，在windows上是UTF-16小端
+ * 3 String外面的byte[]，大小端取决于当时转换中所用的编码格式
+ */
 public final class String
     implements java.io.Serializable, Comparable<String>, CharSequence {
     /** The value is used for character storage. */
+    // jdk9 变成byte
     private final char value[];
 
     /** Cache the hash code for the string */
@@ -869,6 +897,25 @@ public final class String
      *                 dst.length}
      *          </ul>
      */
+    // 设计有缺陷 不使用
+
+    /**
+     * ※ 已过时，设计有缺陷
+     *
+     * 编码String，只保留原char中的低byte。
+     * 这意味着，只能正确处理[0x00, 0xFF]范围内的字符，对于超出范围的字节，则将其抛弃。
+     *
+     * 例如：
+     * byte[] value = new byte[4]{0x12,0x34, 0x56,0x78};
+     * byte[] dst = new byte[4];
+     * s.getBytes(value, 0, 2, dst, 0);  // 字节数组dst：[34, 78]
+     *
+     * 只有原字节对表示的char在[0x00, 0xFF]范围内，才能得到一个正确的压缩
+     * @param srcBegin
+     * @param srcEnd
+     * @param dst
+     * @param dstBegin
+     */
     @Deprecated
     public void getBytes(int srcBegin, int srcEnd, byte dst[], int dstBegin) {
         if (srcBegin < 0) {
@@ -973,6 +1020,11 @@ public final class String
      * @see  #compareTo(String)
      * @see  #equalsIgnoreCase(String)
      */
+    // 这个方法是 按字节对比  例如
+//    String a = "abce";
+//    String a = "abce";
+//    从abce逐个对比
+
     public boolean equals(Object anObject) {
         if (this == anObject) {
             return true;
@@ -1102,12 +1154,15 @@ public final class String
      *
      * @see  #equals(Object)
      */
+    // 对比忽略大小写
     public boolean equalsIgnoreCase(String anotherString) {
         return (this == anotherString) ? true
                 : (anotherString != null)
                 && (anotherString.value.length == value.length)
                 && regionMatches(true, 0, anotherString, 0, value.length);
     }
+
+    
 
     /**
      * Compares two strings lexicographically.

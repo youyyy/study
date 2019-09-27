@@ -60,6 +60,7 @@ public class Object {
      *         class of this object.
      * @jls 15.8.2 Class Literals
      */
+    // 返回当前对象所属的类的类对象
     public final native Class<?> getClass();
 
     /**
@@ -97,6 +98,8 @@ public class Object {
      * @see     java.lang.Object#equals(java.lang.Object)
      * @see     java.lang.System#identityHashCode
      */
+    // 获取这个对象的hash值
+    // TODO: 2019/9/27 返回当前对象的哈希码，参见System.identityHashCode(Object)和Arrays.hashCode()方法
     public native int hashCode();
 
     /**
@@ -145,6 +148,7 @@ public class Object {
      * @see     #hashCode()
      * @see     java.util.HashMap
      */
+    // 判等，默认的实现只是简单地比较两个对象的下标。更多判等操作可参考Arrays.equals方法
     public boolean equals(Object obj) {
         return (this == obj);
     }
@@ -209,6 +213,10 @@ public class Object {
      *               be cloned.
      * @see java.lang.Cloneable
      */
+    /**
+     * 浅拷贝，使用时往往需要重写为public形式。
+     * 注：要求被克隆的对象所属的类实现Cloneable接口
+     */
     protected native Object clone() throws CloneNotSupportedException;
 
     /**
@@ -232,6 +240,7 @@ public class Object {
      *
      * @return  a string representation of the object.
      */
+    // 字符串化，往往需要重写
     public String toString() {
         return getClass().getName() + "@" + Integer.toHexString(hashCode());
     }
@@ -268,6 +277,52 @@ public class Object {
      * @see        java.lang.Object#notifyAll()
      * @see        java.lang.Object#wait()
      */
+
+    // 下面开始十分重要，是学习线程的开端
+
+
+
+    /*▼ 线程 ████████████████████████████████████████████████████████████████████████████████┓ */
+
+    /*
+     * wait使得调用wait方法的线程放弃锁的持有权，并进入WAITING或TIMED_WAITING状态
+     *
+     * wait方法应当配合synchronized一起使用：
+     *
+     * 示例一：
+     * synchronized void fun(){
+     *   try {
+     *      wait(1000);
+     *   } catch(InterruptedException e) {
+     *      e.printStackTrace();
+     *   }
+     * }
+     *
+     * 示例二：
+     * synchronized(object) {
+     *   try {
+     *     object.wait(1000);
+     *   } catch(InterruptedException e) {
+     *     e.printStackTrace();
+     *   }
+     * }
+     *
+     * wait让当前线程陷入等待的同时，释放其持有的锁，以便让其他线程争夺锁的控制权
+     * 作为对比，Thread.sleep方法即使陷入等待，也不会释放锁
+     *
+     * wait线程醒来的条件：
+     * 1. 超时
+     * 2. 被notify()或notifyAll()唤醒
+     * 3. 在其他线程中调用该线程的interrupt()方法
+     *
+     * 注：
+     * wait方法持有的锁是当前wait所处的上下文的对象（某个栈帧中的对象）
+     * 如果wait持有的锁与当前上下文中的锁不一致，或者wait和notify用的锁不一致，会触发InterruptedException
+     */
+
+
+
+    // 随机唤醒某个具有相同锁的对象从wait状态进入争锁状态
     public final native void notify();
 
     /**
@@ -292,6 +347,7 @@ public class Object {
      * @see        java.lang.Object#notify()
      * @see        java.lang.Object#wait()
      */
+    // 唤醒所有具有相同锁的对象从wait状态进入争锁状态
     public final native void notifyAll();
 
     /**
@@ -379,8 +435,8 @@ public class Object {
      * @see        java.lang.Object#notify()
      * @see        java.lang.Object#notifyAll()
      */
+    // 等待timeout毫秒之后自动醒来，或者靠上述条件2或条件3唤醒
     public final native void wait(long timeout) throws InterruptedException;
-
     /**
      * Causes the current thread to wait until another thread invokes the
      * {@link java.lang.Object#notify()} method or the
@@ -443,6 +499,10 @@ public class Object {
      *             status</i> of the current thread is cleared when
      *             this exception is thrown.
      */
+    /*
+     * 至少等待timeoutMillis毫秒，nanos是一个纳秒级的附加时间，用来微调timeoutMillis参数
+     * 内部实现可参考Thread中的void sleep(long millis, int nanos)方法
+     */
     public final void wait(long timeout, int nanos) throws InterruptedException {
         if (timeout < 0) {
             throw new IllegalArgumentException("timeout value is negative");
@@ -498,9 +558,13 @@ public class Object {
      * @see        java.lang.Object#notify()
      * @see        java.lang.Object#notifyAll()
      */
+    // 永不超时，需要靠notify notifyAll唤醒
     public final void wait() throws InterruptedException {
         wait(0);
     }
+
+    /*▲ 线程 ████████████████████████████████████████████████████████████████████████████████┛ */
+
 
     /**
      * Called by the garbage collector on an object when garbage collection
@@ -552,5 +616,6 @@ public class Object {
      * @see java.lang.ref.PhantomReference
      * @jls 12.6 Finalization of Class Instances
      */
+    // 对象实现自我拯救
     protected void finalize() throws Throwable { }
 }

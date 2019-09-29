@@ -1154,6 +1154,9 @@ public final class String
      *
      * @see  #equals(Object)
      */
+
+
+
     // 对比忽略大小写
     public boolean equalsIgnoreCase(String anotherString) {
         return (this == anotherString) ? true
@@ -1205,6 +1208,14 @@ public final class String
      *          value greater than {@code 0} if this string is
      *          lexicographically greater than the string argument.
      */
+
+
+
+    /**
+     * 这方法返回的 第一个不相等的字符的差 a-b
+     * @param anotherString
+     * @return
+     */
     public int compareTo(String anotherString) {
         int len1 = value.length;
         int len2 = anotherString.value.length;
@@ -1236,6 +1247,8 @@ public final class String
      * @see     java.text.Collator#compare(String, String)
      * @since   1.2
      */
+
+    // 可序列化的 字符串比较器 忽略了大小写
     public static final Comparator<String> CASE_INSENSITIVE_ORDER
                                          = new CaseInsensitiveComparator();
     private static class CaseInsensitiveComparator
@@ -1243,10 +1256,18 @@ public final class String
         // use serialVersionUID from JDK 1.2.2 for interoperability
         private static final long serialVersionUID = 8575799808933029326L;
 
+        // 返回第一个不相等的字符的差 或者前一段完全相等,返回长度差
         public int compare(String s1, String s2) {
             int n1 = s1.length();
             int n2 = s2.length();
+            // 先取二者之最短长度
             int min = Math.min(n1, n2);
+
+            // 比较这几个长度的，比较方式如下
+            //     abcd
+            //     acbf
+            //      b-c=-1
+            // 返回-1
             for (int i = 0; i < min; i++) {
                 char c1 = s1.charAt(i);
                 char c2 = s2.charAt(i);
@@ -1267,6 +1288,8 @@ public final class String
         }
 
         /** Replaces the de-serialized object. */
+
+        // 替换反序列化的对象 todo 什么意思
         private Object readResolve() { return CASE_INSENSITIVE_ORDER; }
     }
 
@@ -1290,6 +1313,8 @@ public final class String
      * @see     java.text.Collator#compare(String, String)
      * @since   1.2
      */
+
+    // 忽略大小写比较  调用的是静态内部类的实现方式
     public int compareToIgnoreCase(String str) {
         return CASE_INSENSITIVE_ORDER.compare(this, str);
     }
@@ -1326,6 +1351,10 @@ public final class String
      *          exactly matches the specified subregion of the string argument;
      *          {@code false} otherwise.
      */
+
+
+    // 比较两个String指定的区域  1,"abc", 2, len,
+    // s1的第一个字符   s2的第二个字符    一共比较len个
     public boolean regionMatches(int toffset, String other, int ooffset,
             int len) {
         char ta[] = value;
@@ -1396,6 +1425,7 @@ public final class String
      *          or case insensitive depends on the {@code ignoreCase}
      *          argument.
      */
+    // 是否忽略大小写  比较指定长度的字符串
     public boolean regionMatches(boolean ignoreCase, int toffset,
             String other, int ooffset, int len) {
         char ta[] = value;
@@ -1428,6 +1458,9 @@ public final class String
                 // for the Georgian alphabet, which has strange rules about case
                 // conversion.  So we need to make one last check before
                 // exiting.
+
+                // todo 上面已经比较了大写了  为什么这里还要比较小写
+                // 不幸的是，格鲁吉亚字母不能正确转换为大写字母，这对于大小写转换具有奇怪的规则。因此，我们需要在退出前进行最后检查。
                 if (Character.toLowerCase(u1) == Character.toLowerCase(u2)) {
                     continue;
                 }
@@ -1454,6 +1487,8 @@ public final class String
      *          this.substring(toffset).startsWith(prefix)
      *          </pre>
      */
+    // s2.startsWith(s1,1)
+    // 比较s2是不是以s1开头  可以设置从s2第几个开始
     public boolean startsWith(String prefix, int toffset) {
         char ta[] = value;
         int to = toffset;
@@ -1500,6 +1535,7 @@ public final class String
      *          empty string or is equal to this {@code String} object
      *          as determined by the {@link #equals(Object)} method.
      */
+    // 是否以suffix结束
     public boolean endsWith(String suffix) {
         return startsWith(suffix, value.length - suffix.value.length);
     }
@@ -1517,6 +1553,8 @@ public final class String
      *
      * @return  a hash code value for this object.
      */
+    // 计算String的哈希值，计算公式为：s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]。空串的哈希值为0。
+    // todo 这个计算方式和sha1实现得不一样
     public int hashCode() {
         int h = hash;
         if (h == 0 && value.length > 0) {
@@ -1597,6 +1635,10 @@ public final class String
      *          than or equal to {@code fromIndex}, or {@code -1}
      *          if the character does not occur.
      */
+    // 从fromIndex开始 寻找ch的第一次出现的下标
+
+
+    //        return isLatin1() ? StringLatin1.indexOf(value, ch, fromIndex) : StringUTF16.indexOf(value, ch, fromIndex);
     public int indexOf(int ch, int fromIndex) {
         final int max = value.length;
         if (fromIndex < 0) {
@@ -1662,6 +1704,7 @@ public final class String
      *          character sequence represented by this object, or
      *          {@code -1} if the character does not occur.
      */
+    // 最后一次出现的下标 ch
     public int lastIndexOf(int ch) {
         return lastIndexOf(ch, value.length - 1);
     }
@@ -1720,6 +1763,7 @@ public final class String
     /**
      * Handles (rare) calls of lastIndexOf with a supplementary character.
      */
+    // 处理（罕见）带有补充字符的lastIndexOf调用
     private int lastIndexOfSupplementary(int ch, int fromIndex) {
         if (Character.isValidCodePoint(ch)) {
             final char[] value = this.value;
@@ -1977,6 +2021,7 @@ public final class String
      *             {@code beginIndex} is negative or larger than the
      *             length of this {@code String} object.
      */
+    // 求 子字符串
     public String substring(int beginIndex) {
         if (beginIndex < 0) {
             throw new StringIndexOutOfBoundsException(beginIndex);
@@ -2118,6 +2163,7 @@ public final class String
      * @return  a string derived from this string by replacing every
      *          occurrence of {@code oldChar} with {@code newChar}.
      */
+    // 字符替换 使用遍历实现
     public String replace(char oldChar, char newChar) {
         if (oldChar != newChar) {
             int len = value.length;
@@ -2172,6 +2218,7 @@ public final class String
      * @since 1.4
      * @spec JSR-51
      */
+    // 当前字符串与给定的正则表达式是否完全匹配，参见Pattern#matches(String, CharSequence)和Matcher#matches()
     public boolean matches(String regex) {
         return Pattern.matches(regex, this);
     }
@@ -2229,6 +2276,7 @@ public final class String
      * @since 1.4
      * @spec JSR-51
      */
+    // 使用replacement替换正则表达式regex匹配到的首个子串，replacement可以是捕获组的引用
     public String replaceFirst(String regex, String replacement) {
         return Pattern.compile(regex).matcher(this).replaceFirst(replacement);
     }
@@ -2274,6 +2322,7 @@ public final class String
      * @since 1.4
      * @spec JSR-51
      */
+    // 使用replacement替换正则表达式regex匹配到的全部子串，replacement可以是捕获组的引用
     public String replaceAll(String regex, String replacement) {
         return Pattern.compile(regex).matcher(this).replaceAll(replacement);
     }
@@ -2290,6 +2339,7 @@ public final class String
      * @return  The resulting string
      * @since 1.5
      */
+    // 使用replacement替换target
     public String replace(CharSequence target, CharSequence replacement) {
         return Pattern.compile(target.toString(), Pattern.LITERAL).matcher(
                 this).replaceAll(Matcher.quoteReplacement(replacement.toString()));
@@ -2381,6 +2431,8 @@ public final class String
      * @since 1.4
      * @spec JSR-51
      */
+
+    // 切分String
     public String[] split(String regex, int limit) {
         /* fastpath if the regex is a
          (1)one-char String and this character is not one of the
@@ -2502,6 +2554,7 @@ public final class String
      * @see java.util.StringJoiner
      * @since 1.8
      */
+    // 拼接子串elements，中间用分隔符delimiter隔开（借助字符串拼接器StringJoiner来实现）
     public static String join(CharSequence delimiter, CharSequence... elements) {
         Objects.requireNonNull(delimiter);
         Objects.requireNonNull(elements);
@@ -3032,6 +3085,7 @@ public final class String
      * @see  java.util.Formatter
      * @since  1.5
      */
+    // 格式化
     public static String format(Locale l, String format, Object... args) {
         return new Formatter(l).format(format, args).toString();
     }
@@ -3219,5 +3273,6 @@ public final class String
      * @return  a string that has the same contents as this string, but is
      *          guaranteed to be from a pool of unique strings.
      */
+    // 在常量池中查找该字符串，如果找到，就返回常量池中等值字符串的地址，否则，就返回原地址。
     public native String intern();
 }

@@ -94,6 +94,11 @@ import java.util.Arrays;
  * @see     java.lang.String
  * @since   JDK1.0
  */
+/*
+ * 线程安全的字符序列，适合多线程下操作大量字符，内部实现为字节数组
+ * 线程安全的原理是涉及到修改StringBuffer的操作被synchronized修饰
+ */
+//
  public final class StringBuffer
     extends AbstractStringBuilder
     implements java.io.Serializable, CharSequence
@@ -103,6 +108,9 @@ import java.util.Arrays;
      * A cache of the last value returned by toString. Cleared
      * whenever the StringBuffer is modified.
      */
+    // 调用toString()后生成的缓存，用于存储ASB中的字符序列。每次更改ASB都会清理缓存
+    // TODO: 2019/9/30 有个问题 既然ASB有个数组value用于存字符，为什么这里还要用一个toStringCache
+    // 也许是
     private transient char[] toStringCache;
 
     /** use serialVersionUID from JDK 1.0.2 for interoperability */
@@ -112,6 +120,7 @@ import java.util.Arrays;
      * Constructs a string buffer with no characters in it and an
      * initial capacity of 16 characters.
      */
+    // 默认构造函数 初始长度为16
     public StringBuffer() {
         super(16);
     }
@@ -124,6 +133,7 @@ import java.util.Arrays;
      * @exception  NegativeArraySizeException  if the {@code capacity}
      *               argument is less than {@code 0}.
      */
+    // 指定容量
     public StringBuffer(int capacity) {
         super(capacity);
     }
@@ -576,6 +586,8 @@ import java.util.Arrays;
     /**
      * @throws StringIndexOutOfBoundsException {@inheritDoc}
      */
+    // StringBuffer的insert有的方法没有加锁，是在父类里面将参数转换成String，
+    // 再调用子类的insert(int,String)方法。这个方法是加了锁的
     @Override
     public StringBuffer insert(int offset, int i) {
         // Note, synchronization achieved via invocation of StringBuffer insert(int, String)
@@ -665,6 +677,14 @@ import java.util.Arrays;
         return this;
     }
 
+    /**
+     * 已经是线程安全的，能很容易的保证缓存的同步。
+     * 缓存什么呢? 缓存最后一次toString的内容. 当被修改的时候这个cache清空.
+     * 也就是说, 如果没被修改, 那么这个toStringCache就是上一次toString的结果.
+     * 没被修改的时候, 就可以直接把toStringCache作为new String的参数. 然后把这个String返回就行了.
+     * 也就是cache有效的时候, 就不必进行arraycopy的复制操作. cache失效了才进行arraycopy的复制操作.
+     * @return
+     */
     @Override
     public synchronized String toString() {
         if (toStringCache == null) {
@@ -691,6 +711,7 @@ import java.util.Arrays;
         new java.io.ObjectStreamField("shared", Boolean.TYPE),
     };
 
+    // TODO: 2019/9/30 下面的没看懂用处是什么
     /**
      * readObject is called to restore the state of the StringBuffer from
      * a stream.

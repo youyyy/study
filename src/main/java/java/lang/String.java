@@ -3099,6 +3099,7 @@ public final class String
      *          {@code obj.toString()} is returned.
      * @see     java.lang.Object#toString()
      */
+    // toString 防止空指针
     public static String valueOf(Object obj) {
         return (obj == null) ? "null" : obj.toString();
     }

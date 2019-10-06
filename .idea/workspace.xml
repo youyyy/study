@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7859772830b9679bccdeb10701857b53e9101d69" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7859772830b9679bccdeb10701857b53e9101d69" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/StringBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/StringBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Boolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Boolean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Byte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Double.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Float.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Float.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Integer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Integer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +51,23 @@
       <updated>1569572152019</updated>
       <workItem from="1569572154932" duration="635000" />
       <workItem from="1569572886664" duration="554000" />
-      <workItem from="1569836362366" duration="256000" />
+      <workItem from="1569836362366" duration="12890000" />
     </task>
+    <task id="LOCAL-00001" summary="Q">
+      <created>1569836669666</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569836669666</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Q">
+      <created>1569836806425</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569836806425</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,5 +85,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Q" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q" />
   </component>
 </project>

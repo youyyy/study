@@ -46,6 +46,8 @@ import sun.misc.DoubleConsts;
  * @author  Joseph D. Darcy
  * @since JDK1.0
  */
+// 继承Number float的包装类
+// 跟Double基本一致，不做其他分析
 public final class Float extends Number implements Comparable<Float> {
     /**
      * A constant holding the positive infinity of type
@@ -118,6 +120,7 @@ public final class Float extends Number implements Comparable<Float> {
      *
      * @since 1.5
      */
+    // 当前类型所占bit[位]数
     public static final int SIZE = 32;
 
     /**

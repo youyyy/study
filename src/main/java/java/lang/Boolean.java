@@ -40,6 +40,7 @@ package java.lang;
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */
+// boolean的包装类 实现序列化接口，比较接口
 public final class Boolean implements java.io.Serializable,
                                       Comparable<Boolean>
 {
@@ -61,6 +62,8 @@ public final class Boolean implements java.io.Serializable,
      * @since   JDK1.1
      */
     @SuppressWarnings("unchecked")
+
+    // boolean.class
     public static final Class<Boolean> TYPE = (Class<Boolean>) Class.getPrimitiveClass("boolean");
 
     /**
@@ -68,10 +71,14 @@ public final class Boolean implements java.io.Serializable,
      *
      * @serial
      */
+    // 对象的实际值
     private final boolean value;
 
     /** use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = -3665804199014368530L;
+
+
+    /*▼ 构造方法 ████████████████████████████████████████████████████████████████████████████████┓ */
 
     /**
      * Allocates a {@code Boolean} object representing the
@@ -118,9 +125,14 @@ public final class Boolean implements java.io.Serializable,
      * @return     the boolean represented by the string argument
      * @since 1.5
      */
+    // String转Boolean 忽略大小写
     public static boolean parseBoolean(String s) {
         return ((s != null) && s.equalsIgnoreCase("true"));
     }
+    /*▲ 构造方法 ████████████████████████████████████████████████████████████████████████████████┛ */
+
+
+    /*▼ [拆箱] ████████████████████████████████████████████████████████████████████████████████┓ */
 
     /**
      * Returns the value of this {@code Boolean} object as a boolean
@@ -128,9 +140,12 @@ public final class Boolean implements java.io.Serializable,
      *
      * @return  the primitive {@code boolean} value of this object.
      */
+
     public boolean booleanValue() {
         return value;
     }
+
+    /*▲ [拆箱] ████████████████████████████████████████████████████████████████████████████████┛ */
 
     /**
      * Returns a {@code Boolean} instance representing the specified
@@ -146,6 +161,9 @@ public final class Boolean implements java.io.Serializable,
      * @return a {@code Boolean} instance representing {@code b}.
      * @since  1.4
      */
+
+    /*▼ [装箱] ████████████████████████████████████████████████████████████████████████████████┓ */
+
     public static Boolean valueOf(boolean b) {
         return (b ? TRUE : FALSE);
     }
@@ -162,6 +180,7 @@ public final class Boolean implements java.io.Serializable,
     public static Boolean valueOf(String s) {
         return parseBoolean(s) ? TRUE : FALSE;
     }
+    /*▲ [装箱] ████████████████████████████████████████████████████████████████████████████████┛ */
 
     /**
      * Returns a {@code String} object representing the specified
@@ -248,6 +267,14 @@ public final class Boolean implements java.io.Serializable,
      * @see     java.lang.System#getProperty(java.lang.String)
      * @see     java.lang.System#getProperty(java.lang.String, java.lang.String)
      */
+    /*
+     * 从系统属性中获取值，其中，nm为某个系统属性
+     *
+     * 比如：
+     * System.setProperty("isVIP", "true");
+     * Boolean boo = Boolean.getBoolean("isVIP");
+     * 如果属性isVIP存在，返回设置的值。否则，返回false。
+     */
     public static boolean getBoolean(String name) {
         boolean result = false;
         try {
@@ -269,6 +296,7 @@ public final class Boolean implements java.io.Serializable,
      * @see     Comparable
      * @since  1.5
      */
+    // 比较两个Boolean（可以把true看做1，false看做0，然后再比较）
     public int compareTo(Boolean b) {
         return compare(this.value, b.value);
     }
@@ -287,6 +315,7 @@ public final class Boolean implements java.io.Serializable,
      *         a value greater than {@code 0} if {@code x && !y}
      * @since 1.7
      */
+    // 比较两个boolean（可以把true看做1，false看做0，然后再比较）
     public static int compare(boolean x, boolean y) {
         return (x == y) ? 0 : (x ? 1 : -1);
     }
@@ -329,6 +358,7 @@ public final class Boolean implements java.io.Serializable,
      * @see java.util.function.BinaryOperator
      * @since 1.8
      */
+    // 逻辑异或，相同为假，不同为真
     public static boolean logicalXor(boolean a, boolean b) {
         return a ^ b;
     }

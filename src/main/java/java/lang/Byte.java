@@ -41,6 +41,8 @@ package java.lang;
  * @see     java.lang.Number
  * @since   JDK1.1
  */
+// byte的包装类  final不能被继承
+// 继承Number 实现比较接口
 public final class Byte extends Number implements Comparable<Byte> {
 
     /**
@@ -59,6 +61,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * The {@code Class} instance representing the primitive type
      * {@code byte}.
      */
+    // Class  c = byte.class;
     @SuppressWarnings("unchecked")
     public static final Class<Byte>     TYPE = (Class<Byte>) Class.getPrimitiveClass("byte");
 
@@ -74,6 +77,8 @@ public final class Byte extends Number implements Comparable<Byte> {
         return Integer.toString((int)b, 10);
     }
 
+
+    // Byte缓存，缓存了-128~127之间的Byte对象
     private static class ByteCache {
         private ByteCache(){}
 
@@ -98,6 +103,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * @return a {@code Byte} instance representing {@code b}.
      * @since  1.5
      */
+    // 默认装箱方法
     public static Byte valueOf(byte b) {
         final int offset = 128;
         return ByteCache.cache[(int)b + offset];
@@ -144,6 +150,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * @throws          NumberFormatException If the string does
      *                  not contain a parsable {@code byte}.
      */
+
     public static byte parseByte(String s, int radix)
         throws NumberFormatException {
         int i = Integer.parseInt(s, radix);
@@ -200,6 +207,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * @throws          NumberFormatException If the {@code String} does
      *                  not contain a parsable {@code byte}.
      */
+    // 按radix进制形式将字符串s解析为byte值，随后再装箱
     public static Byte valueOf(String s, int radix)
         throws NumberFormatException {
         return valueOf(parseByte(s, radix));
@@ -227,6 +235,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * @throws          NumberFormatException If the {@code String} does
      *                  not contain a parsable {@code byte}.
      */
+    // 按10进制形式将字符串s解析为byte值，随后再装箱
     public static Byte valueOf(String s) throws NumberFormatException {
         return valueOf(s, 10);
     }
@@ -273,6 +282,14 @@ public final class Byte extends Number implements Comparable<Byte> {
      *            contain a parsable {@code byte}.
      * @see java.lang.Byte#parseByte(java.lang.String, int)
      */
+    /*
+     * 将字符串nm解析为byte，随后再装箱
+     *
+     * 采用哪种进制解析nm取决于nm的格式：
+     * > 0x、0X、#开头，代表按16进制解析
+     * > 0开头，代表按8进制解析
+     * > 其他情形默认按10进制解析
+     */
     public static Byte decode(String nm) throws NumberFormatException {
         int i = Integer.decode(nm);
         if (i < MIN_VALUE || i > MAX_VALUE)
@@ -287,6 +304,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      * @serial
      */
     private final byte value;
+    /*▼ 构造方法 ████████████████████████████████████████████████████████████████████████████████┓ */
 
     /**
      * Constructs a newly allocated {@code Byte} object that
@@ -315,6 +333,8 @@ public final class Byte extends Number implements Comparable<Byte> {
     public Byte(String s) throws NumberFormatException {
         this.value = parseByte(s, 10);
     }
+    /*▲ 构造方法 ████████████████████████████████████████████████████████████████████████████████┛ */
+
 
     /**
      * Returns the value of this {@code Byte} as a
@@ -505,6 +525,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      *
      * @since 1.5
      */
+    // 当前类型所占bit[位]数
     public static final int SIZE = 8;
 
     /**
@@ -513,6 +534,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      *
      * @since 1.8
      */
+    // 当前类型所占字节数
     public static final int BYTES = SIZE / Byte.SIZE;
 
     /** use serialVersionUID from JDK 1.1. for interoperability */

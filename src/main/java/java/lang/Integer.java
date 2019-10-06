@@ -54,12 +54,15 @@ public final class Integer extends Number implements Comparable<Integer> {
      * A constant holding the minimum value an {@code int} can
      * have, -2<sup>31</sup>.
      */
+    // 都用补码表示
+    // 最小值 -
     @Native public static final int   MIN_VALUE = 0x80000000;
 
     /**
      * A constant holding the maximum value an {@code int} can
      * have, 2<sup>31</sup>-1.
      */
+    // 16^7-1最大值
     @Native public static final int   MAX_VALUE = 0x7fffffff;
 
     /**
@@ -74,6 +77,7 @@ public final class Integer extends Number implements Comparable<Integer> {
     /**
      * All possible chars for representing a number as a String
      */
+    // 用于将数字表示为字符串的所有可能字符
     final static char[] digits = {
         '0' , '1' , '2' , '3' , '4' , '5' ,
         '6' , '7' , '8' , '9' , 'a' , 'b' ,
@@ -133,6 +137,7 @@ public final class Integer extends Number implements Comparable<Integer> {
 
         /* Use the faster version */
         if (radix == 10) {
+            // 10位表达
             return toString(i);
         }
 
@@ -394,6 +399,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * @param   i   an integer to be converted.
      * @return  a string representation of the argument in base&nbsp;10.
      */
+    // 10位toString
     public static String toString(int i) {
         if (i == Integer.MIN_VALUE)
             return "-2147483648";

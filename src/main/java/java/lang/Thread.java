@@ -137,6 +137,7 @@ import sun.security.util.SecurityConstants;
  * @see     #stop()
  * @since   JDK1.0
  */
+// 线程 实现Runable接口
 public
 class Thread implements Runnable {
     /* Make sure registerNatives is the first thing <clinit> does. */
@@ -145,7 +146,10 @@ class Thread implements Runnable {
         registerNatives();
     }
 
+    // volatile加锁
     private volatile char  name[];
+
+    // 线程优先级
     private int            priority;
     private Thread         threadQ;
     private long           eetop;
@@ -160,18 +164,23 @@ class Thread implements Runnable {
     private boolean     stillborn = false;
 
     /* What will be run. */
+    // 当前线程将要执行的动作
     private Runnable target;
 
     /* The group of this thread */
+    // 当前线程所处的线程组
     private ThreadGroup group;
 
     /* The context ClassLoader for this thread */
+    // 当前线程（所处的类）的类加载器
     private ClassLoader contextClassLoader;
 
     /* The inherited AccessControlContext of this thread */
+    // 此线程继承的AccessControlContext
     private AccessControlContext inheritedAccessControlContext;
 
     /* For autonumbering anonymous threads. */
+    // 下一个线程编号，用于合成线程名
     private static int threadInitNumber;
     private static synchronized int nextThreadNum() {
         return threadInitNumber++;
@@ -179,12 +188,14 @@ class Thread implements Runnable {
 
     /* ThreadLocal values pertaining to this thread. This map is maintained
      * by the ThreadLocal class. */
+    // 一个键值对组合，为当前线程关联一些“独享”变量，ThreadLocal是key。
     ThreadLocal.ThreadLocalMap threadLocals = null;
 
     /*
      * InheritableThreadLocal values pertaining to this thread. This map is
      * maintained by the InheritableThreadLocal class.
      */
+    // 从父线程继承而来的键值对组合<ThreadLocal, Object>，由InheritableThreadLocal维护
     ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
 
     /*
@@ -202,9 +213,13 @@ class Thread implements Runnable {
     /*
      * Thread ID
      */
+    /**
+     * 线程ID
+     */
     private long tid;
 
     /* For generating thread ID */
+    // 下一个线程ID
     private static long threadSeqNumber;
 
     /* Java thread status for tools,
@@ -244,16 +259,19 @@ class Thread implements Runnable {
     /**
      * The minimum priority that a thread can have.
      */
+    // 线程最小优先级
     public final static int MIN_PRIORITY = 1;
 
    /**
      * The default priority that is assigned to a thread.
      */
+   // 线程默认优先级
     public final static int NORM_PRIORITY = 5;
 
     /**
      * The maximum priority that a thread can have.
      */
+    // 线程最大优先级
     public final static int MAX_PRIORITY = 10;
 
     /**
@@ -298,6 +316,7 @@ class Thread implements Runnable {
      *          <i>interrupted status</i> of the current thread is
      *          cleared when this exception is thrown.
      */
+    // 使线程进入TIMED_WAITING状态  不释放锁
     public static native void sleep(long millis) throws InterruptedException;
 
     /**
@@ -360,8 +379,10 @@ class Thread implements Runnable {
      * @param acc the AccessControlContext to inherit, or
      *            AccessController.getContext() if null
      */
+    // 初始化线程
     private void init(ThreadGroup g, Runnable target, String name,
                       long stackSize, AccessControlContext acc) {
+        // 线程必须有名称，没有主动设置的话就使用默认名称
         if (name == null) {
             throw new NullPointerException("name cannot be null");
         }

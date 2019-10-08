@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4ca38ffcef2cc4c5eed0e0766ed2c32d59d6e600" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4ca38ffcef2cc4c5eed0e0766ed2c32d59d6e600" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7859772830b9679bccdeb10701857b53e9101d69" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7859772830b9679bccdeb10701857b53e9101d69" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/5/b59d568e237b89c34d30632571eb3606fbfa2fae" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/5/b59d568e237b89c34d30632571eb3606fbfa2fae" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Boolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Boolean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Byte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Double.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Float.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Float.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Integer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Integer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Runnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Runnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Thread.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +27,9 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunDashboard">
@@ -51,7 +56,9 @@
       <updated>1569572152019</updated>
       <workItem from="1569572154932" duration="635000" />
       <workItem from="1569572886664" duration="554000" />
-      <workItem from="1569836362366" duration="12890000" />
+      <workItem from="1569836362366" duration="17725000" />
+      <workItem from="1570516745487" duration="27000" />
+      <workItem from="1570519377692" duration="1619000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -67,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569836806425</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Boolean、Byte、Double、Float、Integer大致浏览了一遍，全是基础数据类型包装类">
+      <created>1570348242081</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570348242081</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Q" />
-    <option name="LAST_COMMIT_MESSAGE" value="Q" />
+    <MESSAGE value="Boolean、Byte、Double、Float、Integer大致浏览了一遍，全是基础数据类型包装类" />
+    <option name="LAST_COMMIT_MESSAGE" value="Boolean、Byte、Double、Float、Integer大致浏览了一遍，全是基础数据类型包装类" />
   </component>
 </project>

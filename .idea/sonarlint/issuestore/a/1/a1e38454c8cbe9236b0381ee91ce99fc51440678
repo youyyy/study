@@ -1,0 +1,14 @@
+
+\squid:S3358ä	"DExtract this nested ternary operation into an independent statement.(©¾±±
+<squid:S1659§"Declare "y" on a separate line.(¡Ê²‘şÿÿÿÿ
+hsquid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(‘•íÎûÿÿÿÿ
+csquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(šêÅ˜
+csquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(‘ŞÌÃ
+jsquid:S3776¥"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¾–ËÀ
+Usquid:S1197©"8Move the array designator from the variable to the type.(¨òøàüÿÿÿÿ
+hsquid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(µíŒ²ûÿÿÿÿ
+?squid:S2761©""Remove multiple operator prefixes.(¨òøàüÿÿÿÿ
+Bsquid:S00108¹	")Either remove or fill this block of code.(¼šÎÚ
+>squid:S1659¶"!Declare "len" on a separate line.(Åƒ¥üÿÿÿÿ
+Gsquid:S00108¾	")Either remove or fill this block of code.(é–³öûÿÿÿÿ
+isquid:S3776¤"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(¹›ò4

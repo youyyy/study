@@ -1,0 +1,7 @@
+
+asquid:S3358"DExtract this nested ternary operation into an independent statement.(”äî¥şÿÿÿÿ
+hsquid:S1764µ"KCorrect one of the identical sub-expressions on both sides of operator "!="(›Õ¿Øüÿÿÿÿ
+Vsquid:UselessImportCheck"-Remove this unused import 'sun.misc.FpUtils'.(¿¬¦×øÿÿÿÿ
+ysquid:UselessImportCheck"NRemove this unused import 'com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput'.(ÓÒÒÃ8Ò”åùÙ-
+jsquid:S3776¢"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¬ÆÏØ
+Ssquid:S1191"5Use classes from the Java API instead of Sun classes.(ÓÒÒÃ8Ò”åùÙ-

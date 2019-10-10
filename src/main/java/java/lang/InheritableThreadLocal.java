@@ -45,6 +45,7 @@ import java.lang.ref.*;
  * @since   1.2
  */
 
+// 本地可继承线程
 public class InheritableThreadLocal<T> extends ThreadLocal<T> {
     /**
      * Computes the child's initial value for this inheritable thread-local

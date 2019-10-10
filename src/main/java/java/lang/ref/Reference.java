@@ -88,7 +88,10 @@ public abstract class Reference<T> {
      * discovered objects through the discovered field. The discovered
      * field is also used for linking Reference objects in the pending list.
      */
-
+    /*
+     * 由Reference追踪的目标对象
+     * 只有该对象被GC特别对待，子类中的其他对象不会被追踪
+     */
     private T referent;         /* Treated specially by GC */
 
     volatile ReferenceQueue<? super T> queue;
@@ -250,6 +253,7 @@ public abstract class Reference<T> {
      * @return   The object to which this reference refers, or
      *           <code>null</code> if this reference object has been cleared
      */
+    // 返回此Reference包裹的自定义引用对象，如果该对象已被回收，则返回null
     public T get() {
         return this.referent;
     }

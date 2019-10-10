@@ -750,6 +750,7 @@ public class ThreadLocal<T> {
          *     那么在找到它的过程中，路过的Entry元素是连成一片的。
          *     理解这一点很重要，这是理解set方法的基础之一。
          */
+        // 清理 从摸一个下标开始  key已经被回收的值
         private int expungeStaleEntry(int staleSlot) {
             Entry[] tab = table;
             int len = tab.length;
@@ -819,6 +820,7 @@ public class ThreadLocal<T> {
          * @return true if any stale entries have been removed.
          */
         // 从下标i开始向后遍历，清理一部分垃圾值，清理过后元素依然是紧凑的
+        // TODO: 2019/10/10  这个方法和expungeStaleEntry的区别还需要整理
         private boolean cleanSomeSlots(int i, int n) {
             boolean removed = false;
             Entry[] tab = table;

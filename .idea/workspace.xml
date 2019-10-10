@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25f7f9bf6a62967c78875def2f5139d7742c9482" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25f7f9bf6a62967c78875def2f5139d7742c9482" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7859772830b9679bccdeb10701857b53e9101d69" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7859772830b9679bccdeb10701857b53e9101d69" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/InheritableThreadLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/InheritableThreadLocal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/ThreadLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/ThreadLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/ref/Reference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/ref/Reference.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +53,7 @@
       <workItem from="1569836362366" duration="17725000" />
       <workItem from="1570516745487" duration="27000" />
       <workItem from="1570519377692" duration="5311000" />
-      <workItem from="1570604651128" duration="29590000" />
+      <workItem from="1570604651128" duration="31971000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -89,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570524899466</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ThreadLocal学习了一部分，没有彻底理解">
+      <created>1570709920513</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570709920513</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Q" />
     <MESSAGE value="Boolean、Byte、Double、Float、Integer大致浏览了一遍，全是基础数据类型包装类" />
-    <option name="LAST_COMMIT_MESSAGE" value="Boolean、Byte、Double、Float、Integer大致浏览了一遍，全是基础数据类型包装类" />
+    <MESSAGE value="ThreadLocal学习了一部分，没有彻底理解" />
+    <option name="LAST_COMMIT_MESSAGE" value="ThreadLocal学习了一部分，没有彻底理解" />
   </component>
 </project>

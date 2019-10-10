@@ -2125,6 +2125,7 @@ class Thread implements Runnable {
      * @see ThreadGroup#uncaughtException
      * @since 1.5
      */
+    // 未捕获的异常处理程序
     public void setUncaughtExceptionHandler(UncaughtExceptionHandler eh) {
         checkAccess();
         uncaughtExceptionHandler = eh;

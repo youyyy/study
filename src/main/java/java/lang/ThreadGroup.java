@@ -53,28 +53,61 @@ import sun.misc.VM;
  * and working off of that snapshot, rather than holding the thread group locked
  * while we work on the children.
  */
+/*
+ * ThreadGroup用来管理一组线程和子线程组，每个ThreadGroup在进程中以树形方式存在。
+ * 通常情况下根线程组是system线程组，system线程组下是main线程组，接下来是经由main线程组创建出来的自定义线程组。
+ */
 public
 class ThreadGroup implements Thread.UncaughtExceptionHandler {
+    /*▼ 线程组属性 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┓ */
+
+    // 父线程组
     private final ThreadGroup parent;
+
+    // 线程组名称
     String name;
+    // 线程组优先级
     int maxPriority;
-    boolean destroyed;
+
+    // 是否为守护线程
     boolean daemon;
+    /*▲ 线程组属性 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┛ */
+
+
+
+    /*▼ 线程组状态 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┓ */
+
+    // 当前线程组是否已销毁
+    boolean destroyed;
+    /*▲ 线程组状态 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┛ */
+
+
     boolean vmAllowSuspension;
 
-    int nUnstartedThreads = 0;
-    int nthreads;
-    Thread threads[];
+    /*▼ 存储子线程组和线程 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┓ */
 
+    // 创建了但还未start()的线程
+    int nUnstartedThreads = 0;
+    // 当前线程组内包含的线程数量
+    int nthreads;
+    // 存储当前线程组内包含的线程
+    Thread threads[];
+    // 子线程组数量
     int ngroups;
+    // 存储子线程组
     ThreadGroup groups[];
+    /*▲ 存储子线程组和线程 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┛ */
 
     /**
      * Creates an empty Thread group that is not in any Thread group.
      * This method is used to create the system Thread group.
      */
+    /*▼ 构造方法 ████████████████████████████████████████████████████████████████████████████████┓ */
+
+    // 由底层代码调用，创建根线程组
     private ThreadGroup() {     // called from C code
         this.name = "system";
+        // 优先级与线程使用的一致
         this.maxPriority = Thread.MAX_PRIORITY;
         this.parent = null;
     }
@@ -92,6 +125,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see     java.lang.ThreadGroup#checkAccess()
      * @since   JDK1.0
      */
+    // 创建指定名称的子线程组
     public ThreadGroup(String name) {
         this(Thread.currentThread().getThreadGroup(), name);
     }
@@ -113,6 +147,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see     java.lang.ThreadGroup#checkAccess()
      * @since   JDK1.0
      */
+    // 在指定的父线程组parent和name的情形下创建子线程组
     public ThreadGroup(ThreadGroup parent, String name) {
         this(checkParentAccess(parent), parent, name);
     }
@@ -123,8 +158,10 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
         this.daemon = parent.daemon;
         this.vmAllowSuspension = parent.vmAllowSuspension;
         this.parent = parent;
-        parent.add(this);
+        parent.add(this); // 创建完子线程组后要将其添加到父线程组数组中
     }
+
+    /*▲ 构造方法 ████████████████████████████████████████████████████████████████████████████████┛ */
 
     /*
      * @throws  NullPointerException  if the parent argument is {@code null}
@@ -162,6 +199,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see        java.lang.RuntimePermission
      * @since   JDK1.0
      */
+    //
     public final ThreadGroup getParent() {
         if (parent != null)
             parent.checkAccess();
@@ -224,6 +262,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @since      JDK1.0
      */
     public final void setDaemon(boolean daemon) {
+        // 方法确定当前运行的线程是否有权修改该线程
         checkAccess();
         this.daemon = daemon;
     }
@@ -256,6 +295,9 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see        java.lang.ThreadGroup#checkAccess()
      * @since      JDK1.0
      */
+    // 递归设置线程组的优先级。子线程组优先级不超过父线程组
+
+    // 先设置当前线程，然后循环对比自线程是否满足不大于父线程 n^n
     public final void setMaxPriority(int pri) {
         int ngroupsSnapshot;
         ThreadGroup[] groupsSnapshot;
@@ -287,6 +329,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *          <code>false</code> otherwise.
      * @since   JDK1.0
      */
+    // 判断当前线程组是否为线程组g的祖先
     public final boolean parentOf(ThreadGroup g) {
         for (; g != null ; g = g.parent) {
             if (g == this) {
@@ -309,6 +352,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see        java.lang.SecurityManager#checkAccess(java.lang.ThreadGroup)
      * @since      JDK1.0
      */
+    // 方法确定当前运行的线程是否有权修改该线程
     public final void checkAccess() {
         SecurityManager security = System.getSecurityManager();
         if (security != null) {
@@ -333,6 +377,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // 活跃线程数量的快照。递归统计当前线程组及其子线程组内的线程数量。（线程数量会动态变化） n^n
     public int activeCount() {
         int result;
         // Snapshot sub-group data so we don't hold this lock
@@ -343,8 +388,8 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
             if (destroyed) {
                 return 0;
             }
-            result = nthreads;
-            ngroupsSnapshot = ngroups;
+            result = nthreads;// 当前线程组的线程数量
+            ngroupsSnapshot = ngroups;// 子线程组的数量
             if (groups != null) {
                 groupsSnapshot = Arrays.copyOf(groups, ngroupsSnapshot);
             } else {
@@ -379,6 +424,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // ▶ 1-1 将线程组中存活的线程递归遍历后存入数组list
     public int enumerate(Thread list[]) {
         checkAccess();
         return enumerate(list, 0, true);
@@ -417,18 +463,26 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // ▶ 1-2 将线程组中存活的线程存入数组list，参数recurse指示是否递归存入子线程组所有线程
     public int enumerate(Thread list[], boolean recurse) {
         checkAccess();
         return enumerate(list, 0, recurse);
     }
-
+    /*
+     * ▶ 1 将当前线程组存活的线程复制到数组list中。
+     * 参数n为list的下标，代表存入线程时用到的起始下标。
+     * 参数recurse表示是否递归存储。
+     * 如果需要递归存储，意味着子线程组中的线程也会被存入数组list
+     */
     private int enumerate(Thread list[], int n, boolean recurse) {
         int ngroupsSnapshot = 0;
         ThreadGroup[] groupsSnapshot = null;
         synchronized (this) {
+            // 已销毁线程组
             if (destroyed) {
                 return 0;
             }
+            //线程组的线程数量
             int nt = nthreads;
             if (nt > list.length - n) {
                 nt = list.length - n;
@@ -438,6 +492,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
                     list[n++] = threads[i];
                 }
             }
+            // 如果需要递归，这里准备子线程组的数据
             if (recurse) {
                 ngroupsSnapshot = ngroups;
                 if (groups != null) {
@@ -447,6 +502,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
+        // 具体实现递归
         if (recurse) {
             for (int i = 0 ; i < ngroupsSnapshot ; i++) {
                 n = groupsSnapshot[i].enumerate(list, n, true);
@@ -470,9 +526,11 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // 活跃线程组数量的快照。递归统计当前线程组的子线程组数量。（线程组数量会动态变化）
     public int activeGroupCount() {
         int ngroupsSnapshot;
         ThreadGroup[] groupsSnapshot;
+        // 对当前线程组加锁
         synchronized (this) {
             if (destroyed) {
                 return 0;
@@ -513,6 +571,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // ▶ 1-1 将线程组中存活的线程组递归遍历后存入数组list
     public int enumerate(ThreadGroup list[]) {
         checkAccess();
         return enumerate(list, 0, true);
@@ -551,11 +610,17 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // ▶ 1-2 将线程组中存活的线程存入数组list，参数recurse指示是否递归存入子线程组所有线程
     public int enumerate(ThreadGroup list[], boolean recurse) {
         checkAccess();
         return enumerate(list, 0, recurse);
     }
-
+    /*
+     * ▶ 2 将当前线程组包含的子线程复制到数组list中。
+     * 参数n为list的下标，代表存入线程组时用到的起始下标。
+     * 参数recurse表示是否递归存储。
+     * 如果需要递归存储，意味着子线程组中的线程组也会被存入数组list
+     */
     private int enumerate(ThreadGroup list[], int n, boolean recurse) {
         int ngroupsSnapshot = 0;
         ThreadGroup[] groupsSnapshot = null;
@@ -571,6 +636,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
                 System.arraycopy(groups, 0, list, n, ng);
                 n += ng;
             }
+            // 需要递归 准备子线程组数据
             if (recurse) {
                 ngroupsSnapshot = ngroups;
                 if (groups != null) {
@@ -580,6 +646,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
+        // 具体递归累加线程组的数量
         if (recurse) {
             for (int i = 0 ; i < ngroupsSnapshot ; i++) {
                 n = groupsSnapshot[i].enumerate(list, n, true);
@@ -607,6 +674,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @deprecated    This method is inherently unsafe.  See
      *     {@link Thread#stop} for details.
      */
+    // 停止所有当前线程组下的线程
     @Deprecated
     public final void stop() {
         if (stopOrSuspend(false))
@@ -630,10 +698,12 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see        java.lang.ThreadGroup#checkAccess()
      * @since      1.2
      */
+    // 中断线程。递归中断当前线程组及其子线程组内所有线程
     public final void interrupt() {
         int ngroupsSnapshot;
         ThreadGroup[] groupsSnapshot;
         synchronized (this) {
+            // 校验当前现线程是否有权限修改线程
             checkAccess();
             for (int i = 0 ; i < nthreads ; i++) {
                 threads[i].interrupt();
@@ -669,6 +739,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @deprecated    This method is inherently deadlock-prone.  See
      *     {@link Thread#suspend} for details.
      */
+    // 暂停当前线程组下的所有线程
     @Deprecated
     @SuppressWarnings("deprecation")
     public final void suspend() {
@@ -732,6 +803,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *       both of which have been deprecated, as they are inherently
      *       deadlock-prone.  See {@link Thread#suspend} for details.
      */
+    // 恢复 与咱提高相对应
     @Deprecated
     @SuppressWarnings("deprecation")
     public final void resume() {
@@ -769,20 +841,24 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @see        java.lang.ThreadGroup#checkAccess()
      * @since      JDK1.0
      */
+    // 销毁已经不包含线程的线程组。需要递归清理当前线程组及其子线程组。
     public final void destroy() {
         int ngroupsSnapshot;
         ThreadGroup[] groupsSnapshot;
         synchronized (this) {
+            // 线程权限校验
             checkAccess();
             if (destroyed || (nthreads > 0)) {
                 throw new IllegalThreadStateException();
             }
             ngroupsSnapshot = ngroups;
             if (groups != null) {
+                // 线程组保存快照
                 groupsSnapshot = Arrays.copyOf(groups, ngroupsSnapshot);
             } else {
                 groupsSnapshot = null;
             }
+            // 处理当前线程组
             if (parent != null) {
                 destroyed = true;
                 ngroups = 0;
@@ -791,9 +867,11 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
                 threads = null;
             }
         }
+        // 递归处理
         for (int i = 0 ; i < ngroupsSnapshot ; i += 1) {
             groupsSnapshot[i].destroy();
         }
+        // 去父线程组 删除当前线程组
         if (parent != null) {
             parent.remove(this);
         }
@@ -804,6 +882,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @param g the specified Thread group to be added
      * @exception IllegalThreadStateException If the Thread group has been destroyed.
      */
+    // 向当前线程组内添加子线程组g
     private final void add(ThreadGroup g){
         synchronized (this) {
             if (destroyed) {
@@ -812,6 +891,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
             if (groups == null) {
                 groups = new ThreadGroup[4];
             } else if (ngroups == groups.length) {
+                // 翻倍扩容
                 groups = Arrays.copyOf(groups, ngroups * 2);
             }
             groups[ngroups] = g;
@@ -827,6 +907,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @param g the Thread group to be removed
      * @return if this Thread has already been destroyed.
      */
+    // 将线程组g从当前线程组中移除
     private void remove(ThreadGroup g) {
         synchronized (this) {
             if (destroyed) {
@@ -835,6 +916,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
             for (int i = 0 ; i < ngroups ; i++) {
                 if (groups[i] == g) {
                     ngroups -= 1;
+                    // 底层数组的操作几本都是用的这种。 复制了元素的引用构成一个新数组，当然这个数组被覆盖
                     System.arraycopy(groups, i + 1, groups, i, ngroups - i);
                     // Zap dangling reference to the dead group so that
                     // the garbage collector will collect it.
@@ -845,6 +927,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
             if (nthreads == 0) {
                 notifyAll();
             }
+            // 守护线程组 线程空 为开始的线程为0 子线程组为0  销毁该线程组
             if (daemon && (nthreads == 0) &&
                 (nUnstartedThreads == 0) && (ngroups == 0))
             {
@@ -861,6 +944,8 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * counted so that daemon thread groups with unstarted threads in
      * them are not destroyed.
      */
+    // 计数，统计当前线程组内还未start()的线程数量
+    // 给线程内部用的
     void addUnstarted() {
         synchronized(this) {
             if (destroyed) {
@@ -883,6 +968,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @throws  IllegalThreadStateException
      *          if the Thread group has been destroyed
      */
+    // 将线程t加入到当前线程组
     void add(Thread t) {
         synchronized (this) {
             if (destroyed) {
@@ -891,6 +977,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
             if (threads == null) {
                 threads = new Thread[4];
             } else if (nthreads == threads.length) {
+                // 翻倍扩容 只能返回新的数组
                 threads = Arrays.copyOf(threads, nthreads * 2);
             }
             threads[nthreads] = t;
@@ -919,6 +1006,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @param  t
      *         the Thread whose start method was invoked
      */
+    // 线程启动失败
     void threadStartFailed(Thread t) {
         synchronized(this) {
             remove(t);
@@ -937,11 +1025,13 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @param  t
      *         the Thread that has terminated
      */
+    // 线程中断  线程组需要做一些处理
     void threadTerminated(Thread t) {
         synchronized (this) {
             remove(t);
 
             if (nthreads == 0) {
+                // 释放资源
                 notifyAll();
             }
             if (daemon && (nthreads == 0) &&
@@ -959,6 +1049,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @param  t
      *         the Thread to be removed
      */
+    // 将线程t从当前线程组中移除
     private void remove(Thread t) {
         synchronized (this) {
             if (destroyed) {
@@ -966,6 +1057,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
             }
             for (int i = 0 ; i < nthreads ; i++) {
                 if (threads[i] == t) {
+                    // 缩减数组，数组可以有空缺
                     System.arraycopy(threads, i + 1, threads, i, --nthreads - i);
                     // Zap dangling reference to the dead thread so that
                     // the garbage collector will collect it.
@@ -982,9 +1074,12 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      *
      * @since   JDK1.0
      */
+    // 将当前线程组及其子线程组内的线程信息递归输出到标准输出流
     public void list() {
         list(System.out, 0);
     }
+
+    // 递归列出当前线程组及其子线程组内的线程信息
     void list(PrintStream out, int indent) {
         int ngroupsSnapshot;
         ThreadGroup[] groupsSnapshot;
@@ -1047,6 +1142,7 @@ class ThreadGroup implements Thread.UncaughtExceptionHandler {
      * @param   e   the uncaught exception.
      * @since   JDK1.0
      */
+    // 处理未捕获的异常
     public void uncaughtException(Thread t, Throwable e) {
         if (parent != null) {
             parent.uncaughtException(t, e);

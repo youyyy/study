@@ -1,0 +1,16 @@
+
+Qsquid:S1191G"5Use classes from the Java API instead of Sun classes.(§ù•ùÿÿÿÿ
+ksquid:S30081"ORename this field "NULL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ§ªÃøÿÿÿÿ
+osquid:S30082"SRename this field "ENQUEUED" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÂõ©ùÿÿÿÿ
+Jsquid:S30776".Remove the "volatile" keyword from this field.(óïœÆüÿÿÿÿ
+squid:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®“ö°øÿÿÿÿ
+<squid:S23901" Remove this reference to "Null".(Ğ§ªÃøÿÿÿÿ
+<squid:S23902" Remove this reference to "Null".(óÂõ©ùÿÿÿÿ
+Vsquid:S1161,":Add the "@Override" annotation above this method signature(¥œÈÑÿÿÿÿÿ
+Xsquid:S20944"BRemove this empty class, write its code or make it an "interface".(Åµ™9
+isquid:ModifiersOrderCheck4"EReorder the modifiers to comply with the Java Language Specification.(Åµ™9
+Esquid:EmptyStatementUsageCheck4"Remove this empty statement.(Åµ™9
+=squid:S1452h"&Remove usage of generic wildcard type.(ï»Õ
+Ÿ%squid:RedundantThrowsDeclarationCheck…"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(ĞÁÆ
+Csquid:S1452„"&Remove usage of generic wildcard type.(óÔÏŒÿÿÿÿÿ
+Csquid:S1452£"&Remove usage of generic wildcard type.(ô¿£Óûÿÿÿÿ

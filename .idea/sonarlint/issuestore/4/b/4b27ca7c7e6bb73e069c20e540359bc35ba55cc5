@@ -1,0 +1,90 @@
+
+Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(£ÿõ•ûÿÿÿÿ
+Gsquid:S1066«"/Merge this if statement with the enclosing one.(ÜƒÒ
+xsquid:S1488¹"[Immediately return this expression instead of assigning it to the temporary variable "obj".(•Öàßøÿÿÿÿ
+†"squid:ClassVariableVisibilityCheck¸"XMake configurator a static final constant or non-public and provide accessors if needed.(ò¡¹'
+"squid:ClassVariableVisibilityCheckµ"QMake _flag a static final constant or non-public and provide accessors if needed.(«›ÚT
+osquid:S00117ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ùõù½øÿÿÿÿ
+jsquid:S00117Ÿ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üã¶—
+isquid:S00117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ÷–a
+isquid:S00117„"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ÷–a
+jsquid:S00117¢"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ãºš
+osquid:S00117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±äéäúÿÿÿÿ
+osquid:S00117²"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»­¸ïüÿÿÿÿ
+jsquid:S00117Û	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÙç×
+jsquid:S00117£
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±á‰§
+Bsquid:UselessImportCheckR"Remove this duplicated import.(ô€“†
+Asquid:UselessImportCheck{"Remove this duplicated import.(Þþ™
+
+wsquid:UselessImportCheckt"SRemove this unused import 'com.sun.corba.se.spi.protocol.RequestDispatcherDefault'.(ÿ¬ƒ
+qsquid:UselessImportCheck#"HRemove this unused import 'java.lang.reflect.InvocationTargetException'.(è¾†„øÿÿÿÿ
+squid:UselessImportCheck€"WRemove this unused import 'com.sun.corba.se.spi.presentation.rmi.PresentationDefaults'.(£¼²úùÿÿÿÿ
+csquid:UselessImportCheckz"@Remove this unused import 'com.sun.corba.se.spi.orb.StringPair'.(Þþ™
+
+dsquid:UselessImportCheck8";Remove this unused import 'java.security.AccessController'.(Ç›àŠÿÿÿÿÿ
+Tsquid:UselessImportCheck'"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+€squid:UselessImportCheck§"[Remove this unused import 'com.sun.corba.se.impl.presentation.rmi.PresentationManagerImpl'.(’Ôð
+_squid:UselessImportCheck1"6Remove this unused import 'java.util.StringTokenizer'.(ÈÄ¬ñþÿÿÿÿ
+xsquid:UselessImportCheck"NRemove this unused import 'com.sun.corba.se.impl.encoding.EncapsOutputStream'.(ùûÞ‰øÿÿÿÿ
+usquid:UselessImportCheckY"LRemove this unused import 'com.sun.corba.se.pept.transport.ConnectionCache'.(ŠÐÜŸüÿÿÿÿ
+nsquid:UselessImportCheckŽ"DRemove this unused import 'com.sun.corba.se.impl.corba.RequestImpl'.(©Íñßþÿÿÿÿ
+ysquid:UselessImportCheck"ORemove this unused import 'com.sun.corba.se.impl.dynamicany.DynAnyFactoryImpl'.(žÙìºþÿÿÿÿ
+psquid:UselessImportCheck™"FRemove this unused import 'com.sun.corba.se.impl.oa.poa.DelegateImpl'.(¥½Êìùÿÿÿÿ
+lsquid:UselessImportCheckb"HRemove this unused import 'com.sun.corba.se.spi.ior.iiop.IIOPFactories'.(‡€Ÿ…
+jsquid:UselessImportCheckc"FRemove this unused import 'com.sun.corba.se.spi.ior.iiop.GIOPVersion'.(Å¯›ë
+Zsquid:UselessImportCheck/"1Remove this unused import 'java.util.Collection'.(¹ÉÐšùÿÿÿÿ
+dsquid:UselessImportCheck7";Remove this unused import 'java.security.PrivilegedAction'.(£Þóšùÿÿÿÿ
+osquid:UselessImportCheckw"KRemove this unused import 'com.sun.corba.se.spi.protocol.ForwardException'.(ª¾Ï‚
+{squid:UselessImportCheck"VRemove this unused import 'com.sun.corba.se.spi.presentation.rmi.PresentationManager'.(‘ÀØÒ
+Wsquid:UselessImportCheck-".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+Tsquid:UselessImportCheck."1Remove this unused import 'java.util.LinkedList'.(»Äð1
+Ssquid:UselessImportCheck("/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ
+xsquid:UselessImportCheckv"ORemove this unused import 'com.sun.corba.se.spi.protocol.CorbaMessageMediator'.(üƒóíûÿÿÿÿ
+~squid:UselessImportCheckž"TRemove this unused import 'com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl'.(žÝ†’øÿÿÿÿ
+tsquid:S4144‰"\Update this method so that its implementation is not identical to "get_current" on line 566.(¯Î«‘
+tsquid:S4144Ü"\Update this method so that its implementation is not identical to "get_current" on line 566.(õó…Æ
+tsquid:S4144ä"\Update this method so that its implementation is not identical to "get_current" on line 566.(æá“®
+Csquid:S5164±"+Call "remove()" on "OAInvocationInfoStack".(öà¹ƒ
+Gsquid:S5164³"/Call "remove()" on "clientInvocationInfoStack".(•‚öª
+Dsquid:S5164Ë",Call "remove()" on "isProcessingInvocation".(öÅ†Š
+Hsquid:S5164Û"+Call "remove()" on "orbVersionThreadLocal".(ô±¤»ùÿÿÿÿ
+ysquid:S00116±"`Rename this field "OAInvocationInfoStack" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öà¹ƒ
+}squid:S1149¹"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ß†Œî
+nsquid:S1149Ö"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(À…²¿
+^squid:S4065Ë"FReplace this anonymous class with a call to "ThreadLocal.withInitial".(öÅ†Š
+Wsquid:S1161Ì":Add the "@Override" annotation above this method signature(í×¿¹þÿÿÿÿ
+>squid:S1172Þ"&Remove these unused method parameters.(¿Àˆ«
+^squid:S4065ø"FReplace this anonymous class with a call to "ThreadLocal.withInitial".(¡Ó«½
+Wsquid:S1161ù":Add the "@Override" annotation above this method signature(í×¿¹þÿÿÿÿ
+csquid:S4065"FReplace this anonymous class with a call to "ThreadLocal.withInitial".(ÕÙãžûÿÿÿÿ
+Rsquid:S1161":Add the "@Override" annotation above this method signature(¬²Ï”
+csquid:S4065—"FReplace this anonymous class with a call to "ThreadLocal.withInitial".(ÕÙãžûÿÿÿÿ
+Wsquid:S1161˜":Add the "@Override" annotation above this method signature(í×¿¹þÿÿÿÿ
+\squid:CallToDeprecatedMethodÚ"3Remove this use of "newInstance"; it is deprecated.(Œ›ë¤
+Wsquid:CallToDeprecatedMethod’".Remove this use of "Applet"; it is deprecated.(Ô©ò¶
+Lsquid:S1133¶"5Do not forget to remove this deprecated code someday.(­ÂªL
+Osquid:MissingDeprecatedCheck¶"'Add the missing @Deprecated annotation.(­ÂªL
+@squid:S1125Å"(Remove the literal "true" boolean value.(“õÊÙ
+@squid:S1125Ç"(Remove the literal "true" boolean value.(Ø¿é
+^squid:S2142î"FEither re-interrupt this method or rethrow the "InterruptedException".(£ö–÷
+Gsquid:S2446‚"0"notify" may not wake up the appropriate thread.(Óÿóp
+csquid:S2142×	"FEither re-interrupt this method or rethrow the "InterruptedException".(ÚíÐÝþÿÿÿÿ
+Wsquid:S2274Ö	":Remove this call to "wait" or move it into a "while" loop.(ªÈð˜ûÿÿÿÿ
+Gsquid:S00108×	")Either remove or fill this block of code.(ÚíÐÝþÿÿÿÿ
+Nsquid:S3046
+"1Don't use "wait()" here; multiple locks are held.(§¸‚Õþÿÿÿÿ
+jsquid:S3776Û	"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(éÙç×
+^squid:S2142ƒ
+"FEither re-interrupt this method or rethrow the "InterruptedException".(¬Êã®
+csquid:S2142
+"FEither re-interrupt this method or rethrow the "InterruptedException".(ÚíÐÝþÿÿÿÿ
+Gsquid:S00108
+")Either remove or fill this block of code.(ÚíÐÝþÿÿÿÿ
+Ssquid:S2696ž"6Make the enclosing method "static" or remove this set.(ßÙ‰±úÿÿÿÿ
+bsquid:HiddenFieldCheckí"?Rename "poaFactory" which hides the field declared at line 233.(¼ä»á
+Vsquid:S1854¤">Remove this useless assignment to local variable "entryCount".(ÊžÈ²
+vsquid:S2886Õ"YSynchronize this method to match the synchronization on "getCorbaContactInfoListFactory".(¯’—ºþÿÿÿÿ
+hsquid:S00116µ"PRename this field "_flag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«›ÚT
+Lsquid:S1481™"/Remove this unused "entryCount" local variable.(ú“ªšûÿÿÿÿ
+[squid:UnusedPrivateMethod³"0Remove this unused private "getHostName" method.(ÜÕ½¿ýÿÿÿÿ

@@ -1,0 +1,13 @@
+
+jsquid:ModifiersOrderCheckw"EReorder the modifiers to comply with the Java Language Specification.(ãÒ†ò
+Rsquid:S1161š":Add the "@Override" annotation above this method signature(“–ýþ
+Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(¬Ô«žûÿÿÿÿ
+Ysquid:S2094w"BRemove this empty class, write its code or make it an "interface".(ãÒ†ò
+gsquid:CommentedOutCodeLineH"<This block of commented-out lines of code should be removed.(¦“Á ûÿÿÿÿ
+Gsquid:S2065o"0Remove the "transient" modifier from this field.(ÞÛðå
+fsquid:S3014á"IRemove this use of "ThreadGroup". Prefer the use of "ThreadPoolExecutor".( ÖàŠýÿÿÿÿ
+jsquid:ModifiersOrderChecko"EReorder the modifiers to comply with the Java Language Specification.(ÞÛðå
+Esquid:S3077a".Remove the "volatile" keyword from this field.(ûàÎä
+fsquid:S3014â"IRemove this use of "ThreadGroup". Prefer the use of "ThreadPoolExecutor".(•±Ìûûÿÿÿÿ
+csquid:S2142Ð"FEither re-interrupt this method or rethrow the "InterruptedException".(ÔÍÏÚýÿÿÿÿ
+Rsquid:S2274Â":Remove this call to "wait" or move it into a "while" loop.(ŒºÙ

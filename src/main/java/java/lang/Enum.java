@@ -52,6 +52,26 @@ import java.io.ObjectStreamException;
  * @see     java.util.EnumMap
  * @since   1.5
  */
+/*
+ * 可以看作是所有enum的包装类，不过Enum类是禁止直接继承的
+ *
+ * 示例：
+ * public enum Color {
+ *     WHITE, BLACK
+ * }
+ *
+ * 等价于：
+ * public final class Color extends Enum<Color> {
+ *   public static final Color WHITE = new Color("WHITE", 0);
+ *   public static final Color BLACK = new Color("BLACK", 1);
+ *
+ *   public Color(String name, int ordinal) {
+ *       super(name, ordinal);
+ *   }
+ *
+ *   // ......
+ * }
+ */
 public abstract class Enum<E extends Enum<E>>
         implements Comparable<E>, Serializable {
     /**
@@ -59,6 +79,7 @@ public abstract class Enum<E extends Enum<E>>
      * Most programmers should use the {@link #toString} method rather than
      * accessing this field.
      */
+    // 枚举实例名称
     private final String name;
 
     /**
@@ -73,6 +94,7 @@ public abstract class Enum<E extends Enum<E>>
      *
      * @return the name of this enum constant
      */
+    // 返回枚举实例名称
     public final String name() {
         return name;
     }
@@ -86,6 +108,7 @@ public abstract class Enum<E extends Enum<E>>
      * for use by sophisticated enum-based data structures, such as
      * {@link java.util.EnumSet} and {@link java.util.EnumMap}.
      */
+    // 枚举实例的值
     private final int ordinal;
 
     /**
@@ -99,6 +122,7 @@ public abstract class Enum<E extends Enum<E>>
      *
      * @return the ordinal of this enumeration constant
      */
+    // 返回枚举实例的值
     public final int ordinal() {
         return ordinal;
     }
@@ -172,6 +196,7 @@ public abstract class Enum<E extends Enum<E>>
      * same enum type.  The natural order implemented by this
      * method is the order in which the constants are declared.
      */
+    // 按自然顺序标比较举实例的值
     public final int compareTo(E o) {
         Enum<?> other = (Enum<?>)o;
         Enum<E> self = this;
@@ -194,6 +219,7 @@ public abstract class Enum<E extends Enum<E>>
      *     enum type
      */
     @SuppressWarnings("unchecked")
+    // 返回枚举类类对象
     public final Class<E> getDeclaringClass() {
         Class<?> clazz = getClass();
         Class<?> zuper = clazz.getSuperclass();
@@ -226,6 +252,10 @@ public abstract class Enum<E extends Enum<E>>
      * @throws NullPointerException if {@code enumType} or {@code name}
      *         is null
      * @since 1.5
+     */
+    /*
+     * 获取枚举类enumType中名称为name的枚举实例，其他实例不受影响
+     * Color c = Enum.valueOf(Color.class, "WHITE");
      */
     public static <T extends Enum<T>> T valueOf(Class<T> enumType,
                                                 String name) {

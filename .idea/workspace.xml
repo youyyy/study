@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c72a295a8f3081528d2a02da0d2e528495d4cf6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c72a295a8f3081528d2a02da0d2e528495d4cf6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25f7f9bf6a62967c78875def2f5139d7742c9482" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25f7f9bf6a62967c78875def2f5139d7742c9482" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Thread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/ThreadGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/ThreadGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Enum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Enum.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +54,7 @@
       <workItem from="1570516745487" duration="27000" />
       <workItem from="1570519377692" duration="5311000" />
       <workItem from="1570604651128" duration="32125000" />
-      <workItem from="1570942571219" duration="9606000" />
+      <workItem from="1570942571219" duration="10954000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -103,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570712826369</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ThreadGroup读书笔记">
+      <created>1570961046825</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570961046825</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +129,7 @@
     <MESSAGE value="Boolean、Byte、Double、Float、Integer大致浏览了一遍，全是基础数据类型包装类" />
     <MESSAGE value="ThreadLocal学习了一部分，没有彻底理解" />
     <MESSAGE value="ThreadLocal目前我理解的有多个清除函数，其中的调用关系看看是不是需要整理出来" />
-    <option name="LAST_COMMIT_MESSAGE" value="ThreadLocal目前我理解的有多个清除函数，其中的调用关系看看是不是需要整理出来" />
+    <MESSAGE value="ThreadGroup读书笔记" />
+    <option name="LAST_COMMIT_MESSAGE" value="ThreadGroup读书笔记" />
   </component>
 </project>

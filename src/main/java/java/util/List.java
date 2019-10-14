@@ -375,6 +375,7 @@ public interface List<E> extends Collection<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    // 交集
     boolean retainAll(Collection<?> c);
 
     /**
@@ -475,6 +476,7 @@ public interface List<E> extends Collection<E> {
     @SuppressWarnings({"unchecked", "rawtypes"})
     default void sort(Comparator<? super E> c) {
         Object[] a = this.toArray();
+        // 归并排序
         Arrays.sort(a, (Comparator) c);
         ListIterator<E> i = this.listIterator();
         for (Object e : a) {

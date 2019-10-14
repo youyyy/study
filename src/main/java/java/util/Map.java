@@ -615,6 +615,7 @@ public interface Map<K,V> {
      * removed during iteration
      * @since 1.8
      */
+    // map也实现了forEach方法 使用lambda表达式
     default void forEach(BiConsumer<? super K, ? super V> action) {
         Objects.requireNonNull(action);
         for (Map.Entry<K, V> entry : entrySet()) {
@@ -781,7 +782,9 @@ public interface Map<K,V> {
      *         (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      * @since 1.8
      */
+    // 传了(k,v)保证不会误删
     default boolean remove(Object key, Object value) {
+        // 先根据key获取value
         Object curValue = get(key);
         if (!Objects.equals(curValue, value) ||
             (curValue == null && !containsKey(key))) {
@@ -835,6 +838,7 @@ public interface Map<K,V> {
      */
     default boolean replace(K key, V oldValue, V newValue) {
         Object curValue = get(key);
+        // 校验取到的值是否和传来的oldValue一致 和 key是都存在 和 key的value是空
         if (!Objects.equals(curValue, oldValue) ||
             (curValue == null && !containsKey(key))) {
             return false;
@@ -883,6 +887,7 @@ public interface Map<K,V> {
      */
     default V replace(K key, V value) {
         V curValue;
+        // key存在 且得到的value不为空
         if (((curValue = get(key)) != null) || containsKey(key)) {
             curValue = put(key, value);
         }
@@ -948,6 +953,7 @@ public interface Map<K,V> {
      *         (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      * @since 1.8
      */
+    // 如果value为空 则put
     default V computeIfAbsent(K key,
             Function<? super K, ? extends V> mappingFunction) {
         Objects.requireNonNull(mappingFunction);
@@ -1009,6 +1015,7 @@ public interface Map<K,V> {
      *         (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      * @since 1.8
      */
+    // 如果value存在，则放入新的值
     default V computeIfPresent(K key,
             BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);
@@ -1085,6 +1092,7 @@ public interface Map<K,V> {
      *         (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      * @since 1.8
      */
+    // 正常操作，结果为空，则移除，否则覆盖新的值
     default V compute(K key,
             BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);
@@ -1166,6 +1174,7 @@ public interface Map<K,V> {
      *         null
      * @since 1.8
      */
+    // 与compute的区别在于  仅仅在于这个传了value（旧值）
     default V merge(K key, V value,
             BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);

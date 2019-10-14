@@ -108,7 +108,10 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
+    // 是否包含这个value
     public boolean containsValue(Object value) {
+        // TODO: 2019/10/14 为什么不用
+//        Iterator iterator = values.iterator();
         Iterator<Entry<K,V>> i = entrySet().iterator();
         if (value==null) {
             while (i.hasNext()) {
@@ -140,7 +143,10 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
+    // 判断key是否已经存在
     public boolean containsKey(Object key) {
+        // TODO: 2019/10/14  为什么不这样做
+//         Iterator iterator = keySet.iterator();
         Iterator<Map.Entry<K,V>> i = entrySet().iterator();
         if (key==null) {
             while (i.hasNext()) {
@@ -172,6 +178,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
      */
+    // 先获取entry的迭代器，然后遍历
     public V get(Object key) {
         Iterator<Entry<K,V>> i = entrySet().iterator();
         if (key==null) {
@@ -231,6 +238,10 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
      */
+    // entry的迭代器 遍历
+    // 1.先找到正确的entry
+    // 2.remove
+    // 3.返回旧值
     public V remove(Object key) {
         Iterator<Entry<K,V>> i = entrySet().iterator();
         Entry<K,V> correctEntry = null;
@@ -257,7 +268,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
     }
 
 
-    // Bulk Operations
+    // Bulk Operations 批量操作
 
     /**
      * {@inheritDoc}
@@ -343,6 +354,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * is performed, so there is a slight chance that multiple calls to this
      * method will not all return the same set.
      */
+    // 获取ketSet
     public Set<K> keySet() {
         Set<K> ks = keySet;
         if (ks == null) {
@@ -425,6 +437,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
                 }
 
                 public int size() {
+                    // 调用外部类的size方法
                     return AbstractMap.this.size();
                 }
 
@@ -444,7 +457,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         }
         return vals;
     }
-
+    // 模板模式 在子类实现
     public abstract Set<Entry<K,V>> entrySet();
 
 
@@ -472,17 +485,20 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @param o object to be compared for equality with this map
      * @return <tt>true</tt> if the specified object is equal to this map
      */
+    // o.equals(mapA)  ?
     public boolean equals(Object o) {
         if (o == this)
             return true;
-
+        // 首先确定类型
         if (!(o instanceof Map))
             return false;
         Map<?,?> m = (Map<?,?>) o;
+        // 再判断size
         if (m.size() != size())
             return false;
 
         try {
+            // 遍历对比
             Iterator<Entry<K,V>> i = entrySet().iterator();
             while (i.hasNext()) {
                 Entry<K,V> e = i.next();
@@ -492,6 +508,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
                     if (!(m.get(key)==null && m.containsKey(key)))
                         return false;
                 } else {
+                    // 同一个key value不同 直接return
                     if (!value.equals(m.get(key)))
                         return false;
                 }
@@ -527,6 +544,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         int h = 0;
         Iterator<Entry<K,V>> i = entrySet().iterator();
         while (i.hasNext())
+            // 每一个entry的hashCode累加
             h += i.next().hashCode();
         return h;
     }
@@ -569,8 +587,12 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      *
      * @return a shallow copy of this map
      */
+    // TODO: 2019/10/14 没太明白，这也没有实现啊
+    // 重写clone方法，将protected改为public，所以子类才能clone。但是抽象类不支持clone。所以在HashMap重写
+    //实现一个浅拷贝，由于是浅拷贝对于变量keySet和values不进行拷贝，防止两个浅拷贝引发的问题
     protected Object clone() throws CloneNotSupportedException {
         AbstractMap<?,?> result = (AbstractMap<?,?>)super.clone();
+        // 为什么置空
         result.keySet = null;
         result.values = null;
         return result;
@@ -582,6 +604,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      *
      * NB: Do not replace with Object.equals until JDK-8015417 is resolved.
      */
+    // 内部使用
     private static boolean eq(Object o1, Object o2) {
         return o1 == null ? o2 == null : o1.equals(o2);
     }
@@ -604,6 +627,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      *
      * @since 1.6
      */
+
     public static class SimpleEntry<K,V>
         implements Entry<K,V>, java.io.Serializable
     {
@@ -619,6 +643,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
          * @param key the key represented by this entry
          * @param value the value represented by this entry
          */
+        //构造函数，传入 key 和 value
         public SimpleEntry(K key, V value) {
             this.key   = key;
             this.value = value;
@@ -630,6 +655,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
          *
          * @param entry the entry to copy
          */
+        //构造函数2，传入一个 Entry，赋值给本地的 key 和 value
         public SimpleEntry(Entry<? extends K, ? extends V> entry) {
             this.key   = entry.getKey();
             this.value = entry.getValue();
@@ -734,6 +760,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      *
      * @since 1.6
      */
+    // 不可修改的键值对
     public static class SimpleImmutableEntry<K,V>
         implements Entry<K,V>, java.io.Serializable
     {
@@ -793,6 +820,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
          * @return (Does not return)
          * @throws UnsupportedOperationException always
          */
+        // 不可修改
         public V setValue(V value) {
             throw new UnsupportedOperationException();
         }

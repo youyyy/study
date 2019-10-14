@@ -4,10 +4,7 @@
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Throwable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Throwable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Void.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Void.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Iterable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Iterable.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +55,7 @@
       <workItem from="1570516745487" duration="27000" />
       <workItem from="1570519377692" duration="5311000" />
       <workItem from="1570604651128" duration="32125000" />
-      <workItem from="1570942571219" duration="16911000" />
+      <workItem from="1570942571219" duration="18013000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -116,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570962924869</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="java.lang的读书笔记到此位置，目前有关进制和类的编译加载留待读书的时候一起看">
+      <created>1571021067179</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571021067179</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +146,7 @@
     <MESSAGE value="ThreadLocal目前我理解的有多个清除函数，其中的调用关系看看是不是需要整理出来" />
     <MESSAGE value="ThreadGroup读书笔记" />
     <MESSAGE value="Enum读书笔记，没有什么值得说的" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enum读书笔记，没有什么值得说的" />
+    <MESSAGE value="java.lang的读书笔记到此位置，目前有关进制和类的编译加载留待读书的时候一起看" />
+    <option name="LAST_COMMIT_MESSAGE" value="java.lang的读书笔记到此位置，目前有关进制和类的编译加载留待读书的时候一起看" />
   </component>
 </project>

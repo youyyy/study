@@ -127,6 +127,7 @@ public class Throwable implements Serializable {
      *
      * @serial
      */
+    //存放异常的详细信息
     private String detailMessage;
 
 
@@ -156,6 +157,8 @@ public class Throwable implements Serializable {
     /**
      * A shared value for an empty stack.
      */
+
+    //初始化栈中的轨迹为一个未分配的栈
     private static final StackTraceElement[] UNASSIGNED_STACK = new StackTraceElement[0];
 
     /*
@@ -194,6 +197,7 @@ public class Throwable implements Serializable {
      * @serial
      * @since 1.4
      */
+    // 初始化一个cause为这个异常本身
     private Throwable cause = this;
 
     /**
@@ -226,6 +230,8 @@ public class Throwable implements Serializable {
      */
     private List<Throwable> suppressedExceptions = SUPPRESSED_SENTINEL;
 
+
+    //一些会随着异常一起被打印的信息
     /** Message for trying to suppress a null exception. */
     private static final String NULL_CAUSE_MESSAGE = "Cannot suppress a null exception.";
 
@@ -238,6 +244,8 @@ public class Throwable implements Serializable {
     /** Caption for labeling suppressed exception stack traces */
     private static final String SUPPRESSED_CAPTION = "Suppressed: ";
 
+
+
     /**
      * Constructs a new throwable with {@code null} as its detail message.
      * The cause is not initialized, and may subsequently be initialized by a
@@ -246,6 +254,7 @@ public class Throwable implements Serializable {
      * <p>The {@link #fillInStackTrace()} method is called to initialize
      * the stack trace data in the newly created throwable.
      */
+    //一个throwable实例被创建，对应的构造器去调用fillStackTrack()方法 ，往堆栈中打印异常信息！！
     public Throwable() {
         fillInStackTrace();
     }
@@ -451,6 +460,7 @@ public class Throwable implements Serializable {
      *         been called on this throwable.
      * @since  1.4
      */
+    //初始化cause，这个cause不能是已经被设置过的也不能是该类自身
     public synchronized Throwable initCause(Throwable cause) {
         if (this.cause != this)
             throw new IllegalStateException("Can't overwrite cause with " +
@@ -777,6 +787,7 @@ public class Throwable implements Serializable {
      * @return  a reference to this {@code Throwable} instance.
      * @see     java.lang.Throwable#printStackTrace()
      */
+    //调用fillStackTrack()方法 ，往堆栈中打印异常信息！！
     public synchronized Throwable fillInStackTrace() {
         if (stackTrace != null ||
             backtrace != null /* Out of protocol state */ ) {
@@ -785,7 +796,7 @@ public class Throwable implements Serializable {
         }
         return this;
     }
-
+    // 本地方法 在堆栈中打印异常信息
     private native Throwable fillInStackTrace(int dummy);
 
     /**

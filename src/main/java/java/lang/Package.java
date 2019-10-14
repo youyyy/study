@@ -224,6 +224,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
      * @exception NumberFormatException if the desired or current version
      *          is not of the correct dotted form.
      */
+    // 与...兼容
     public boolean isCompatibleWith(String desired)
         throws NumberFormatException
     {

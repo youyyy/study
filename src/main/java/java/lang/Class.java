@@ -120,7 +120,9 @@ public final class Class<T> implements java.io.Serializable,
                               GenericDeclaration,
                               Type,
                               AnnotatedElement {
+    // 注解
     private static final int ANNOTATION= 0x00002000;
+    // 枚举
     private static final int ENUM      = 0x00004000;
     private static final int SYNTHETIC = 0x00001000;
 
@@ -134,6 +136,7 @@ public final class Class<T> implements java.io.Serializable,
      * This constructor is not used and prevents the default constructor being
      * generated.
      */
+    // 构造方法
     private Class(ClassLoader loader) {
         // Initialize final field for classLoader.  The initialization value of non-null
         // prevents future JIT optimizations from assuming this final field is null.
@@ -257,6 +260,7 @@ public final class Class<T> implements java.io.Serializable,
      *            by this method fails
      * @exception ClassNotFoundException if the class cannot be located
      */
+    // 根据类的全名加载类对象，而且加载类的同时对类进行初始化
     @CallerSensitive
     public static Class<?> forName(String className)
                 throws ClassNotFoundException {
@@ -326,6 +330,7 @@ public final class Class<T> implements java.io.Serializable,
      * @see       java.lang.ClassLoader
      * @since     1.2
      */
+    // 根据类的全名和指定的类加载器加载类对象，initialize参数指示是否在加载类的同时对类进行初始化
     @CallerSensitive
     public static Class<?> forName(String name, boolean initialize,
                                    ClassLoader loader)
@@ -691,6 +696,8 @@ public final class Class<T> implements java.io.Serializable,
     // Initialized in JVM not by private constructor
     // This field is filtered from reflection access, i.e. getDeclaredField
     // will throw NoSuchFieldException
+
+    // 当前类关联的类加载器
     private final ClassLoader classLoader;
 
     /**
@@ -924,6 +931,7 @@ public final class Class<T> implements java.io.Serializable,
      * @see     java.lang.reflect.Array
      * @since JDK1.1
      */
+    // 数组的组件类型，int[]对应int，int[][]对应int[]，不是数组则为null
     public native Class<?> getComponentType();
 
 

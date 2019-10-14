@@ -1,0 +1,19 @@
+
+fsquid:S00119H"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(Ãï²Ëøÿÿÿÿ
+fsquid:S00119H"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(Ãï²Ëøÿÿÿÿ
+jsquid:S3776Š"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(İ©şÜ
+Ksquid:S1905’".Remove this unnecessary cast to "Spliterator".(Ó«ñîüÿÿÿÿ
+bsquid:HiddenFieldCheck":Rename "depth" which hides the field declared at line 108.(»ÙÁµûÿÿÿÿ
+bsquid:S00119Ñ"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(çîÏÚ
+bsquid:S00119Ö"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(›º‹Œ
+gsquid:S00119Ü"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(›…©°şÿÿÿÿ
+gsquid:S00119ë"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(ÎÃŒĞÿÿÿÿÿ
+gsquid:S00119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(¬´ø´øÿÿÿÿ
+gsquid:S00119Œ"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(ú‰üÿÿÿÿ
+gsquid:S00119—"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(ŸÅçüÿÿÿÿ
+bsquid:S00119¼"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(²Û…İ
+gsquid:S00119Ê"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(ò¸²Öúÿÿÿÿ
+bsquid:S00119£"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(çáŠª
+bsquid:S00119¾"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(¥Ü·À
+hsquid:CommentedOutCodeLine¦"<This block of commented-out lines of code should be removed.(µàĞÃüÿÿÿÿ
+hsquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(µàĞÃüÿÿÿÿ

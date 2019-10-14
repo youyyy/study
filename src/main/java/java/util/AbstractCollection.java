@@ -58,11 +58,13 @@ package java.util;
  * @since 1.2
  */
 
+// 集合类的公有抽象父类
 public abstract class AbstractCollection<E> implements Collection<E> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
+    // 默认构造函数 方便子类调用
     protected AbstractCollection() {
     }
 
@@ -73,8 +75,9 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *
      * @return an iterator over the elements contained in this collection
      */
+    // 迭代器
     public abstract Iterator<E> iterator();
-
+    // size
     public abstract int size();
 
     /**
@@ -82,6 +85,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *
      * <p>This implementation returns <tt>size() == 0</tt>.
      */
+    // size == 0
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -95,6 +99,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
+    // 用迭代器实现遍历 时间复杂度 O(n)
     public boolean contains(Object o) {
         Iterator<E> it = iterator();
         if (o==null) {
@@ -131,6 +136,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * return list.toArray();
      * }</pre>
      */
+    // 链表结构转成数组
     public Object[] toArray() {
         // Estimate size of array; be prepared to see more or fewer elements
         Object[] r = new Object[size()];
@@ -171,6 +177,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * @throws NullPointerException {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
+    // 转换成数组  带类型
     public <T> T[] toArray(T[] a) {
         // Estimate size of array; be prepared to see more or fewer elements
         int size = size();
@@ -179,13 +186,20 @@ public abstract class AbstractCollection<E> implements Collection<E> {
                   .newInstance(a.getClass().getComponentType(), size);
         Iterator<E> it = iterator();
 
+        // 具体 转化成数组
         for (int i = 0; i < r.length; i++) {
+            // 若是迭代器放完了，数组还有剩余空间
             if (! it.hasNext()) { // fewer elements than expected
                 if (a == r) {
+                    // 数组长度完全足够，且当初给定的数组是足够的
                     r[i] = null; // null-terminate
                 } else if (a.length < i) {
+                    // 给定数组长度不够，自己扩容的情况
+                    // 所以r的大小其实变大了所以需要重新copy一份扩容的的数组
                     return Arrays.copyOf(r, i);
                 } else {
+                    // TODO: 2019/10/14 这里可能是因为size和迭代器的不一致造成的情况
+                    // 将r copy 到a 将末位置空
                     System.arraycopy(r, 0, a, 0, i);
                     if (a.length > i) {
                         a[i] = null;
@@ -193,9 +207,11 @@ public abstract class AbstractCollection<E> implements Collection<E> {
                 }
                 return a;
             }
+            // 首先将迭代器中有的 放进去
             r[i] = (T)it.next();
         }
         // more elements than expected
+        // TODO: 2019/10/14 难道是因为size不靠谱？？？
         return it.hasNext() ? finishToArray(r, it) : r;
     }
 
@@ -217,15 +233,18 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * @return array containing the elements in the given array, plus any
      *         further elements returned by the iterator, trimmed to size
      */
+    // 将it后面的再继续赋值给r
     @SuppressWarnings("unchecked")
     private static <T> T[] finishToArray(T[] r, Iterator<?> it) {
         int i = r.length;
         while (it.hasNext()) {
             int cap = r.length;
+            // 需要扩容
             if (i == cap) {
                 int newCap = cap + (cap >> 1) + 1;
                 // overflow-conscious code
                 if (newCap - MAX_ARRAY_SIZE > 0)
+                    // 如果有溢出风险
                     newCap = hugeCapacity(cap + 1);
                 r = Arrays.copyOf(r, newCap);
             }
@@ -235,6 +254,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return (i == r.length) ? r : Arrays.copyOf(r, i);
     }
 
+    // TODO: 2019/10/14  也就多了8个元素，有必要这样做吗
     private static int hugeCapacity(int minCapacity) {
         if (minCapacity < 0) // overflow
             throw new OutOfMemoryError
@@ -282,6 +302,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         Iterator<E> it = iterator();
         if (o==null) {
             while (it.hasNext()) {
+                // TODO: 2019/10/14   为什么有会存在hasNext 但是next为null
                 if (it.next()==null) {
                     it.remove();
                     return true;

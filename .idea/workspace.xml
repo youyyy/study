@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/07c606fa2f81e1d2b7e4371b8a61069365a57802" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/07c606fa2f81e1d2b7e4371b8a61069365a57802" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/859e44bc516f61a357dd1b0e797c60e2df8e085c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/859e44bc516f61a357dd1b0e797c60e2df8e085c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c8b123b59234229859d29e9a679b646d613db2d7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c8b123b59234229859d29e9a679b646d613db2d7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e6a98c54a40ea4665e6c3880b5e5cfedcacb1bcb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e6a98c54a40ea4665e6c3880b5e5cfedcacb1bcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Iterable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Iterable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/AbstractCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/AbstractCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/Collection.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +31,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="yiiguxing.plugin.translate" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -55,7 +61,8 @@
       <workItem from="1570516745487" duration="27000" />
       <workItem from="1570519377692" duration="5311000" />
       <workItem from="1570604651128" duration="32125000" />
-      <workItem from="1570942571219" duration="18013000" />
+      <workItem from="1570942571219" duration="20928000" />
+      <workItem from="1571025404466" duration="7205000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -129,6 +136,30 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="range">
+                    <value>
+                      <list>
+                        <option value="HEAD..origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>

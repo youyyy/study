@@ -1,0 +1,14 @@
+
+`squid:UselessImportCheck."7Remove this unused import 'java.util.jar.JarException'.(®âÏºûÿÿÿÿ
+Tsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»º
+Zsquid:S2094û"BRemove this empty class, write its code or make it an "interface".(ó‚…Ñ
+Bsquid:S00108Å")Either remove or fill this block of code.(à®¿­
+Ssquid:UselessImportCheck1"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ
+osquid:S3776ä"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(©úïæúÿÿÿÿ
+csquid:UselessImportCheck#":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ
+_squid:S00107È"AConstructor has 9 parameters, which is greater than 7 authorized.(Şò‘‡øÿÿÿÿ
+Vsquid:UselessImportCheck"2Remove this unused import 'java.util.Enumeration'.(»îÜ®
+psquid:ModifiersOrderCheckƒ"EReorder the modifiers to comply with the Java Language Specification.(Ùş´Ûüÿÿÿÿ
+_squid:UselessImportCheck "6Remove this unused import 'java.util.StringTokenizer'.(ÈÄ¬ñşÿÿÿÿ
+Qsquid:S11913"5Use classes from the Java API instead of Sun classes.(Ô¯›øıÿÿÿÿ
+jsquid:S3776ß"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(‘Ø¬

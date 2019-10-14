@@ -1,31 +1,34 @@
 
-Jsquid:S1133"5Do not forget to remove this deprecated code someday.(’ıœÀ
-Dsquid:S00108")Either remove or fill this block of code.(ª¤Ùºûÿÿÿÿ
-Dsquid:S1066"/Merge this if statement with the enclosing one.(ªä®â
-Csquid:S3077".Remove the "volatile" keyword from this field.(ŞƒÚÓ
-bsquid:S1192"HDefine a constant instead of duplicating this literal "Thread-" 4 times.(ì°‰²üÿÿÿÿ
-msquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Ë®°Ôúÿÿÿÿ
-Csquid:S3077".Remove the "volatile" keyword from this field.(³ë§Ş
-Csquid:S3077".Remove the "volatile" keyword from this field.(‹¬˜
-gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¡»ë
-Csquid:S3077".Remove the "volatile" keyword from this field.(û²Ğ„
-Osquid:S1133"5Do not forget to remove this deprecated code someday.(Ü¡ó¶øÿÿÿÿ
-hsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ŞÁ³¶
-Jsquid:S1133"5Do not forget to remove this deprecated code someday.(®¦“
-Jsquid:S1133"5Do not forget to remove this deprecated code someday.(È°Ã‚
-qsquid:S00116"VRename this field "single_step" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³”íàøÿÿÿÿ
-Jsquid:S1133"5Do not forget to remove this deprecated code someday.(‚“¶î
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(§¢û˜ùÿÿÿÿ8¾ÈÕüÚ-
-tsquid:S1192"ZDefine a constant instead of duplicating this literal "timeout value is negative" 3 times.(­¤„õûÿÿÿÿ
-Msquid:S1197"8Move the array designator from the variable to the type.(³ë§Ş
-Hsquid:S3077".Remove the "volatile" keyword from this field.(•Ç¤üÿÿÿÿ
-Csquid:S3077".Remove the "volatile" keyword from this field.(ÔÙêê
-\$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(Ÿü×é
-hsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Ë²‰
-hsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(“Õ–§
-Osquid:S1133"5Do not forget to remove this deprecated code someday.(‘©Ìúÿÿÿÿ
-Msquid:S1197"8Move the array designator from the variable to the type.(®ğš½
-Osquid:S1191"5Use classes from the Java API instead of Sun classes.(ÉÃ¾åüÿÿÿÿ
-msquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(÷º÷Úúÿÿÿÿ
-Dsquid:S00108")Either remove or fill this block of code.(ª¤Ùºûÿÿÿÿ
-\squid:S1182"HUse super.clone() to create and seed the cloned instance to be returned.(™”” 
+Gsquid:S1066·"/Merge this if statement with the enclosing one.(ªä®â
+Gsquid:S00108 ")Either remove or fill this block of code.(ª¤Ùºûÿÿÿÿ
+wsquid:S1192í"ZDefine a constant instead of duplicating this literal "timeout value is negative" 3 times.(­¤„õûÿÿÿÿ
+psquid:ModifiersOrderCheck›"EReorder the modifiers to comply with the Java Language Specification.(÷º÷Úúÿÿÿÿ
+ksquid:ModifiersOrderCheck•"EReorder the modifiers to comply with the Java Language Specification.(Ë²‰
+Msquid:S1133ğ"5Do not forget to remove this deprecated code someday.(’ıœÀ
+Fsquid:S3077ö".Remove the "volatile" keyword from this field.(‹¬˜
+_$squid:AssignmentInSubExpressionCheck˜	".Extract the assignment out of this expression.(Ÿü×é
+jsquid:S00117›"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¡»ë
+Psquid:S1197–"8Move the array designator from the variable to the type.(³ë§Ş
+esquid:S1192"HDefine a constant instead of duplicating this literal "Thread-" 4 times.(ì°‰²üÿÿÿÿ
+ksquid:ModifiersOrderCheck²"EReorder the modifiers to comply with the Java Language Specification.(“Õ–§
+Ksquid:S3077ê".Remove the "volatile" keyword from this field.(•Ç¤üÿÿÿÿ
+osquid:CommentedOutCodeLine®
+"<This block of commented-out lines of code should be removed.(§¢û˜ùÿÿÿÿ8¾ÈÕüÚ-
+Fsquid:S3077–".Remove the "volatile" keyword from this field.(³ë§Ş
+Fsquid:S3077ı".Remove the "volatile" keyword from this field.(ÔÙêê
+Rsquid:S1133±"5Do not forget to remove this deprecated code someday.(‘©Ìúÿÿÿÿ
+Fsquid:S3077„".Remove the "volatile" keyword from this field.(ŞƒÚÓ
+psquid:ModifiersOrderCheck°"EReorder the modifiers to comply with the Java Language Specification.(Ë®°Ôúÿÿÿÿ
+_squid:S1182ó"HUse super.clone() to create and seed the cloned instance to be returned.(™”” 
+Rsquid:S1133Ö"5Do not forget to remove this deprecated code someday.(Ü¡ó¶øÿÿÿÿ
+Fsquid:S3077ù".Remove the "volatile" keyword from this field.(û²Ğ„
+Msquid:S1133’
+"5Do not forget to remove this deprecated code someday.(È°Ã‚
+Msquid:S1133¯"5Do not forget to remove this deprecated code someday.(‚“¶î
+tsquid:S00116Ÿ"VRename this field "single_step" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³”íàøÿÿÿÿ
+Qsquid:S1191'"5Use classes from the Java API instead of Sun classes.(ÉÃ¾åüÿÿÿÿ
+Gsquid:S00108¦")Either remove or fill this block of code.(ª¤Ùºûÿÿÿÿ
+Msquid:S1133"5Do not forget to remove this deprecated code someday.(®¦“
+Psquid:S1197
+"8Move the array designator from the variable to the type.(®ğš½
+ksquid:ModifiersOrderCheck¡"EReorder the modifiers to comply with the Java Language Specification.(ŞÁ³¶

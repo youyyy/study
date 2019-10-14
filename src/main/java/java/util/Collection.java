@@ -140,7 +140,7 @@ import java.util.stream.StreamSupport;
  * @see     AbstractCollection
  * @since 1.2
  */
-
+// 集合接口
 public interface Collection<E> extends Iterable<E> {
     // Query Operations
 
@@ -406,6 +406,7 @@ public interface Collection<E> extends Iterable<E> {
      *         supported.
      * @since 1.8
      */
+    //
     default boolean removeIf(Predicate<? super E> filter) {
         Objects.requireNonNull(filter);
         boolean removed = false;
@@ -441,6 +442,7 @@ public interface Collection<E> extends Iterable<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    // 交集
     boolean retainAll(Collection<?> c);
 
     /**
@@ -598,6 +600,7 @@ public interface Collection<E> extends Iterable<E> {
      * collection
      * @since 1.8
      */
+    // 流的并行处理
     default Stream<E> parallelStream() {
         return StreamSupport.stream(spliterator(), true);
     }

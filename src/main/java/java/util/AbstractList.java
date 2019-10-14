@@ -67,7 +67,7 @@ package java.util;
  * @author  Neal Gafter
  * @since 1.2
  */
-
+// 所有List的抽象祖先类
 public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
@@ -174,6 +174,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
+    // 从起始位置搜索元素o，如果当前集合不包含此元素，返回-1
     public int indexOf(Object o) {
         ListIterator<E> it = listIterator();
         if (o==null) {
@@ -199,6 +200,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
+    // 最后一次出现元素o的位置，初始化ListIterator时，加入游标位置为末尾。
     public int lastIndexOf(Object o) {
         ListIterator<E> it = listIterator(size());
         if (o==null) {
@@ -230,6 +232,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * @throws UnsupportedOperationException if the {@code clear} operation
      *         is not supported by this list
      */
+    //
     public void clear() {
         removeRange(0, size());
     }
@@ -509,6 +512,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * @param o the object to be compared for equality with this list
      * @return {@code true} if the specified object is equal to this list
      */
+    // 对比每一个元素是否equal。。下标判断
     public boolean equals(Object o) {
         if (o == this)
             return true;
@@ -564,6 +568,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * @param fromIndex index of first element to be removed
      * @param toIndex index after last element to be removed
      */
+    // 批量清除
     protected void removeRange(int fromIndex, int toIndex) {
         ListIterator<E> it = listIterator(fromIndex);
         for (int i=0, n=toIndex-fromIndex; i<n; i++) {
@@ -598,8 +603,9 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * does not wish to provide fail-fast iterators, this field may be
      * ignored.
      */
+    // 标志修改次数
     protected transient int modCount = 0;
-
+    // 添加是的边界校验
     private void rangeCheckForAdd(int index) {
         if (index < 0 || index > size())
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
@@ -609,7 +615,12 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         return "Index: "+index+", Size: "+size();
     }
 }
-
+/**
+ *  内部类 子数组
+ *  截取集合，实际根本就没有返回新集合，还是原来的集合，
+ *  根据构造函数fromIndex,toIndex设置了偏移量offset=fromIndex,和size=toIndex-fromIndex。
+ *  每次还是操作的原集合，只不过加了一个偏移量offset。
+ */
 class SubList<E> extends AbstractList<E> {
     private final AbstractList<E> l;
     private final int offset;
@@ -623,7 +634,7 @@ class SubList<E> extends AbstractList<E> {
         if (fromIndex > toIndex)
             throw new IllegalArgumentException("fromIndex(" + fromIndex +
                                                ") > toIndex(" + toIndex + ")");
-        l = list;
+        l = list;// 引用原来的List
         offset = fromIndex;
         size = toIndex - fromIndex;
         this.modCount = l.modCount;
@@ -749,12 +760,12 @@ class SubList<E> extends AbstractList<E> {
     public List<E> subList(int fromIndex, int toIndex) {
         return new SubList<>(this, fromIndex, toIndex);
     }
-
+    // 边界校验
     private void rangeCheck(int index) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
-
+    //
     private void rangeCheckForAdd(int index) {
         if (index < 0 || index > size)
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
@@ -764,12 +775,15 @@ class SubList<E> extends AbstractList<E> {
         return "Index: "+index+", Size: "+size;
     }
 
+    // 校验标志修改次数是否相等
     private void checkForComodification() {
         if (this.modCount != l.modCount)
             throw new ConcurrentModificationException();
     }
 }
-
+/**
+ * 随机访问截取集合，实际就是用的SubList
+ */
 class RandomAccessSubList<E> extends SubList<E> implements RandomAccess {
     RandomAccessSubList(AbstractList<E> list, int fromIndex, int toIndex) {
         super(list, fromIndex, toIndex);

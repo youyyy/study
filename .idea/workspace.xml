@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/List.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/AbstractList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/AbstractList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +55,7 @@
       <workItem from="1570519377692" duration="5311000" />
       <workItem from="1570604651128" duration="32125000" />
       <workItem from="1570942571219" duration="20928000" />
-      <workItem from="1571025404466" duration="8097000" />
+      <workItem from="1571025404466" duration="10724000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571039740399</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="List接口 里面有一些default方法，没啥用">
+      <created>1571040691833</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571040691833</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +186,7 @@
     <MESSAGE value="Enum读书笔记，没有什么值得说的" />
     <MESSAGE value="java.lang的读书笔记到此位置，目前有关进制和类的编译加载留待读书的时候一起看" />
     <MESSAGE value="AbstractCollection和Collection源码" />
-    <option name="LAST_COMMIT_MESSAGE" value="AbstractCollection和Collection源码" />
+    <MESSAGE value="List接口 里面有一些default方法，没啥用" />
+    <option name="LAST_COMMIT_MESSAGE" value="List接口 里面有一些default方法，没啥用" />
   </component>
 </project>

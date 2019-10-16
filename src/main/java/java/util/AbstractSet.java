@@ -55,6 +55,7 @@ package java.util;
  * @since 1.2
  */
 
+// set的公共抽象父类
 public abstract class AbstractSet<E> extends AbstractCollection<E> implements Set<E> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
@@ -82,16 +83,20 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
      * @param o object to be compared for equality with this set
      * @return <tt>true</tt> if the specified object is equal to this set
      */
+    // 判断相等  按元素判断
     public boolean equals(Object o) {
+        // 直接相等
         if (o == this)
             return true;
-
+        // 判断类型
         if (!(o instanceof Set))
             return false;
         Collection<?> c = (Collection<?>) o;
+        // 判断大小
         if (c.size() != size())
             return false;
         try {
+            // 因为前面大小已经判断必须一致，所以这里可以调用containsAll即可
             return containsAll(c);
         } catch (ClassCastException unused)   {
             return false;
@@ -168,12 +173,15 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
     public boolean removeAll(Collection<?> c) {
         Objects.requireNonNull(c);
         boolean modified = false;
-
+        // 需要删除的set  <  自身的set
+        //      以目标函数来遍历，调用remove函数
         if (size() > c.size()) {
             for (Iterator<?> i = c.iterator(); i.hasNext(); )
                 modified |= remove(i.next());
         } else {
+            // 以少的 自身遍历
             for (Iterator<?> i = iterator(); i.hasNext(); ) {
+                // 如果重合  删除
                 if (c.contains(i.next())) {
                     i.remove();
                     modified = true;

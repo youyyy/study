@@ -111,11 +111,13 @@ public class ArrayList<E> extends AbstractList<E>
     /**
      * Default initial capacity.
      */
+    // 默认容量
     private static final int DEFAULT_CAPACITY = 10;
 
     /**
      * Shared empty array instance used for empty instances.
      */
+    // 指定初始容量为0时，返回该空数组
     private static final Object[] EMPTY_ELEMENTDATA = {};
 
     /**
@@ -123,6 +125,7 @@ public class ArrayList<E> extends AbstractList<E>
      * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when
      * first element is added.
      */
+    // 默认  初始空数组
     private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
     /**
@@ -131,6 +134,16 @@ public class ArrayList<E> extends AbstractList<E>
      * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
      * will be expanded to DEFAULT_CAPACITY when the first element is added.
      */
+    /*
+    存储元素，ArrayList的容量就是这个缓冲区的容量。
+    当elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA时，
+    第一次添加元素后，扩容至默认容量10。非私有域便于嵌套类的访问。
+
+    另外虽然这里用了transient修饰，但是其实现了readObject和writeObject
+      for (int i = 0; i < size; i++)
+                s.writeObject(elementData[i]);
+    查看源码可知,实现了序列化
+    */
     transient Object[] elementData; // non-private to simplify nested class access
 
     /**
@@ -147,6 +160,7 @@ public class ArrayList<E> extends AbstractList<E>
      * @throws IllegalArgumentException if the specified initial capacity
      *         is negative
      */
+    // 构造函数
     public ArrayList(int initialCapacity) {
         if (initialCapacity > 0) {
             this.elementData = new Object[initialCapacity];
@@ -241,6 +255,7 @@ public class ArrayList<E> extends AbstractList<E>
      * Attempts to allocate larger arrays may result in
      * OutOfMemoryError: Requested array size exceeds VM limit
      */
+    //最大容量，避免在某些虚拟机下可能引起的OutOfMemoryError，减8的原因：数组作为一个对象，需要一定的内存存储对象头信息，对象头信息最大占用内存不可超过8字节。
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     /**

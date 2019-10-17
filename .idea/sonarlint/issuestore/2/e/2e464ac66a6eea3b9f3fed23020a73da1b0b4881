@@ -1,0 +1,11 @@
+
+_$squid:AssignmentInSubExpressionCheckÒ".Extract the assignment out of this expression.(•ı¨á
+Usquid:S1155×">Use isEmpty() to check whether the collection is empty or not.(ÏÅúI
+Usquid:S1155ª">Use isEmpty() to check whether the collection is empty or not.(ÏÅúI
+|squid:S1149V"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(œÔèÕ
+|squid:S1149Ö"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ŒÅç’úÿÿÿÿ
+jsquid:S2975_"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(²ÈŞ
+jsquid:S3776„"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÜÑã
+asquid:S4201…"IRemove this unnecessary null check; "instanceof" returns false for nulls.(œ Óö
+jsquid:S3776¶"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ğÜşŠ
+hsquid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(û¨®•üÿÿÿÿ

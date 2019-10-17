@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/2/02899e71502f235100b367543bf794bf495e83c3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/2/02899e71502f235100b367543bf794bf495e83c3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/0963f3054eb85ae59d9c8dd32a6aee823ca20350" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/0963f3054eb85ae59d9c8dd32a6aee823ca20350" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c72a295a8f3081528d2a02da0d2e528495d4cf6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c72a295a8f3081528d2a02da0d2e528495d4cf6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/9/697757fa2798c3169a78255ca9c79ff47fcec25e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/9/697757fa2798c3169a78255ca9c79ff47fcec25e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ce4f5f082216299fac4245e400dffab84a6173d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ce4f5f082216299fac4245e400dffab84a6173d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d17689cf16cbcab73dba520c71fe1786528515f5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d17689cf16cbcab73dba520c71fe1786528515f5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/AbstractSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/AbstractSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/ArrayList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +56,7 @@
       <workItem from="1570604651128" duration="32125000" />
       <workItem from="1570942571219" duration="20928000" />
       <workItem from="1571025404466" duration="27888000" />
-      <workItem from="1571230332757" duration="728000" />
+      <workItem from="1571230332757" duration="3053000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -149,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571059874224</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="AbstractSet set抽象祖先类，唯一一个问题是为什么有时候hashNext但是next()==null">
+      <created>1571231270282</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571231270282</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +203,7 @@
     <MESSAGE value="AbstractCollection和Collection源码" />
     <MESSAGE value="List接口 里面有一些default方法，没啥用" />
     <MESSAGE value="AbstractMap读书笔记，重点理解了为什么重写clone还是protected，而且学习了模版模式，还有类.this.fun访问外部类的方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="AbstractMap读书笔记，重点理解了为什么重写clone还是protected，而且学习了模版模式，还有类.this.fun访问外部类的方法" />
+    <MESSAGE value="AbstractSet set抽象祖先类，唯一一个问题是为什么有时候hashNext但是next()==null" />
+    <option name="LAST_COMMIT_MESSAGE" value="AbstractSet set抽象祖先类，唯一一个问题是为什么有时候hashNext但是next()==null" />
   </component>
 </project>

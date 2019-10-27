@@ -389,7 +389,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
                 throw new ConcurrentModificationException();
         }
     }
-
+    // 迭代器 数组结构转链表结构
     private class ListItr extends Itr implements ListIterator<E> {
         ListItr(int index) {
             cursor = index;
@@ -603,7 +603,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * does not wish to provide fail-fast iterators, this field may be
      * ignored.
      */
-    // 标志修改次数
+    // 标志修改次数  可以防并发？
     protected transient int modCount = 0;
     // 添加是的边界校验
     private void rangeCheckForAdd(int index) {

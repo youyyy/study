@@ -1,74 +1,75 @@
 
-Nsquid:S2388¿"1Prefix this call to "listIterator" with "super.".(ÆÊˆûÿÿÿÿ
-Qsquid:S1161”":Add the "@Override" annotation above this method signature(‡£
-d$squid:AssignmentInSubExpressionCheck¨".Extract the assignment out of this expression.(ùÊ¦øÿÿÿÿ
-Tsquid:S2589¡"7Remove this expression which always evaluates to "true"(÷ª»îúÿÿÿÿ
-Š squid:ForLoopCounterChangedCheck‹"XRefactor the code in order to not assign to this loop counter from within the loop body.(ÓÕ®•ıÿÿÿÿ
-Qsquid:S1161Ï
-":Add the "@Override" annotation above this method signature(ºˆ¡
-Wsquid:S1161Ò	":Add the "@Override" annotation above this method signature(ª÷‚µøÿÿÿÿ
-Wsquid:S1161":Add the "@Override" annotation above this method signature(Àš¨„ûÿÿÿÿ
-bsquid:HiddenFieldCheckñ":Rename "size" which hides the field declared at line 1014.(î”Ÿşÿÿÿÿ
-hsquid:HiddenFieldCheckŞ	"@Rename "elementData" which hides the field declared at line 134.(Şç·…øÿÿÿÿ
-Hsquid:S2160ò"+Override the "equals" method in this class.(ÅŞŒªúÿÿÿÿ
-Tsquid:S2589à	"7Remove this expression which always evaluates to "true"(÷ª»îúÿÿÿÿ
-d$squid:AssignmentInSubExpressionCheckÛ".Extract the assignment out of this expression.(ùÊ¦øÿÿÿÿ
-esquid:S1192"HDefine a constant instead of duplicating this literal "Index: " 3 times.(úÙĞ ûÿÿÿÿ
-Rsquid:S1161œ":Add the "@Override" annotation above this method signature(‡ğÎ
-Rsquid:S1161¥":Add the "@Override" annotation above this method signature(œ÷¾ÿ
-csquid:HiddenFieldCheckö"@Rename "elementData" which hides the field declared at line 134.(¿Ó­ 
-asquid:HiddenFieldCheckù
-"9Rename "size" which hides the field declared at line 141.(°¦¿‹ùÿÿÿÿ
-asquid:HiddenFieldCheck "9Rename "size" which hides the field declared at line 141.(°¦¿‹ùÿÿÿÿ
-d$squid:AssignmentInSubExpressionCheckë".Extract the assignment out of this expression.(½áöóüÿÿÿÿ
-psquid:S2293¼
-"YReplace the type specification in this constructor call with the diamond operator ("<>").(˜ç¨+
-asquid:S2583ã	"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ
-Tsquid:S2589ú
-"7Remove this expression which always evaluates to "true"(÷ª»îúÿÿÿÿ
-asquid:S2583¤"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ
-=squid:S1659Ğ
-" Declare "mc" on a separate line.(€åä°ıÿÿÿÿ
-csquid:HiddenFieldCheck×"@Rename "elementData" which hides the field declared at line 134.(–§Û
-osquid:S2177É	"WRename this method; there is a "private" method in the parent class with the same name.(ÿ§Ú¶
-osquid:S2177Ä	"WRename this method; there is a "private" method in the parent class with the same name.(šÈ¢­
-csquid:HiddenFieldCheckÖ"@Rename "elementData" which hides the field declared at line 134.(–§Û
-ksquid:S2975İ"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(²ÈŞ
-asquid:HiddenFieldCheckß	"9Rename "size" which hides the field declared at line 141.(°¦¿‹ùÿÿÿÿ
-osquid:S2177"WRename this method; there is a "private" method in the parent class with the same name.(ÿ§Ú¶
-vsquid:S2293Ô	"YReplace the type specification in this constructor call with the diamond operator ("<>").(ĞÛã¹ùÿÿÿÿ
-Qsquid:S1161¾":Add the "@Override" annotation above this method signature(¹æá5
-asquid:S2583¯"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ
-6squid:S1659Ì"Declare "w" on a separate line.(òªüJ
-Rsquid:S1161º	":Add the "@Override" annotation above this method signature(¾ 
-7squid:S1659Ã
+k$squid:AssignmentInSubExpressionCheckŒ	".Extract the assignment out of this expression.(½áöóüÿÿÿÿ8İ®Ãß-
+k$squid:AssignmentInSubExpressionCheckÚ".Extract the assignment out of this expression.(ùÊ¦øÿÿÿÿ8İ®Ãß-
+hsquid:S2583¯"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ8İ®Ãß-
+}squid:S2293†
+"YReplace the type specification in this constructor call with the diamond operator ("<>").(ĞÛã¹ùÿÿÿÿ8İ®Ãß-
+<squid:S1659ƒ"Declare "a" on a separate line.(‡Ñóìøÿÿÿÿ
+osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒµöŒşÿÿÿÿ8ĞÇ›ß-
+‘ squid:ForLoopCounterChangedCheck½"XRefactor the code in order to not assign to this loop counter from within the loop body.(ÓÕ®•ıÿÿÿÿ8İ®Ãß-
+Dsquid:S1659‚" Declare "hi" on a separate line.(€åä°ıÿÿÿÿ8İ®Ãß-
+vsquid:S2177ö	"WRename this method; there is a "private" method in the parent class with the same name.(šÈ¢­8İ®Ãß-
+^squid:S1161":Add the "@Override" annotation above this method signature(¦³üëûÿÿÿÿ8İ®Ãß-
+^squid:S1161³":Add the "@Override" annotation above this method signature(Àš¨„ûÿÿÿÿ8İ®Ãß-
+vsquid:S2177Ï"WRename this method; there is a "private" method in the parent class with the same name.(ÿ§Ú¶8İ®Ãß-
+ksquid:HiddenFieldCheck÷"<Rename "offset" which hides the field declared at line 1063.(‘¸À™øÿÿÿÿ8İ®Ãß-
+jsquid:HiddenFieldCheckˆ	"@Rename "elementData" which hides the field declared at line 148.(–§Û8İ®Ãß-
+hsquid:HiddenFieldCheck«"9Rename "size" which hides the field declared at line 156.(°¦¿‹ùÿÿÿÿ8İ®Ãß-
+squid:S1845Ï"oRename method "elementData" to prevent any misunderstanding/clash with field "elementData" defined on line 148.(Õê¡8İ®Ãß-
+Osquid:S2160¤"+Override the "equals" method in this class.(ÅŞŒªúÿÿÿÿ8İ®Ãß-
+k$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(ùÊ¦øÿÿÿÿ8İ®Ãß-
+jsquid:HiddenFieldCheck™	"@Rename "elementData" which hides the field declared at line 148.(–§Û8İ®Ãß-
+Dsquid:S1659‚" Declare "mc" on a separate line.(€åä°ıÿÿÿÿ8İ®Ãß-
+vsquid:S2177Å"WRename this method; there is a "private" method in the parent class with the same name.(šÈ¢­8İ®Ãß-
+Xsquid:S1161Æ":Add the "@Override" annotation above this method signature(‡£8İ®Ãß-
+=squid:S1659ş"Declare "w" on a separate line.(òªüJ8İ®Ãß-
+vsquid:S2177û	"WRename this method; there is a "private" method in the parent class with the same name.(ÿ§Ú¶8İ®Ãß-
+Usquid:S2388ñ"1Prefix this call to "listIterator" with "super.".(ÆÊˆûÿÿÿÿ8İ®Ãß-
+isquid:HiddenFieldCheck£	":Rename "size" which hides the field declared at line 1064.(î”Ÿşÿÿÿÿ8İ®Ãß-
+wsquid:S2293î
+"YReplace the type specification in this constructor call with the diamond operator ("<>").(˜ç¨+8İ®Ãß-
+jsquid:HiddenFieldCheck¨"@Rename "elementData" which hides the field declared at line 148.(¿Ó­ 8İ®Ãß-
+hsquid:HiddenFieldCheckÒ"9Rename "size" which hides the field declared at line 156.(°¦¿‹ùÿÿÿÿ8İ®Ãß-
+Ysquid:S1161Î":Add the "@Override" annotation above this method signature(‡ğÎ8İ®Ãß-
+Xsquid:S1161":Add the "@Override" annotation above this method signature(ºˆ¡8İ®Ãß-
+e$squid:AssignmentInSubExpressionCheckî
+".Extract the assignment out of this expression.(˜ç¨+8İ®Ãß-
+[squid:S2589¬"7Remove this expression which always evaluates to "true"(÷ª»îúÿÿÿÿ8İ®Ãß-
+csquid:HiddenFieldCheck£"9Rename "size" which hides the field declared at line 156.(¬ªº´8İ®Ãß-
+asquid:HiddenFieldCheck‘
+"9Rename "size" which hides the field declared at line 156.(°¦¿‹ùÿÿÿÿ
+csquid:HiddenFieldCheck‰"@Rename "elementData" which hides the field declared at line 148.(–§Û
+Ysquid:S1161×":Add the "@Override" annotation above this method signature(œ÷¾ÿ8İ®Ãß-
+rsquid:S2975…"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(²ÈŞ8İ®Ãß-
+osquid:HiddenFieldCheck
+"@Rename "elementData" which hides the field declared at line 148.(Şç·…øÿÿÿÿ8İ®Ãß-
+7squid:S1659õ
 "Declare "i" on a separate line.(À‹×Á
-csquid:HiddenFieldCheckö"@Rename "elementData" which hides the field declared at line 134.(¿Ó­ 
-<squid:S1659Ñ
-"Declare "a" on a separate line.(‡Ñóìøÿÿÿÿ
-asquid:S2583ı"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ
-d$squid:AssignmentInSubExpressionCheckÚ".Extract the assignment out of this expression.(½áöóüÿÿÿÿ
-hsquid:HiddenFieldCheckË"@Rename "elementData" which hides the field declared at line 134.(©¬æÑşÿÿÿÿ
-csquid:HiddenFieldCheck¤"@Rename "elementData" which hides the field declared at line 134.(–§Û
-Rsquid:S1161÷":Add the "@Override" annotation above this method signature(œ÷¾ÿ
-^$squid:AssignmentInSubExpressionCheck¼
-".Extract the assignment out of this expression.(˜ç¨+
-=squid:S1659Ğ
-" Declare "hi" on a separate line.(€åä°ıÿÿÿÿ
-dsquid:HiddenFieldCheckÅ"<Rename "offset" which hides the field declared at line 1013.(‘¸À™øÿÿÿÿ
-Wsquid:S1161Ş":Add the "@Override" annotation above this method signature(¦³üëûÿÿÿÿ
-Qsquid:S1161±":Add the "@Override" annotation above this method signature(µ´ˆ2
-osquid:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ı½øÿÿÿÿ
-osquid:S2177“"WRename this method; there is a "private" method in the parent class with the same name.(šÈ¢­
-Wsquid:S1161Â":Add the "@Override" annotation above this method signature(ı½øÿÿÿÿ
-\squid:HiddenFieldCheckñ"9Rename "size" which hides the field declared at line 141.(¬ªº´
->squid:S1659º
-"!Declare "mid" on a separate line.(Ö£¶ìÿÿÿÿÿ
-‡squid:S1845¡"oRename method "elementData" to prevent any misunderstanding/clash with field "elementData" defined on line 134.(Õê¡
-asquid:S2583’"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ
-Rsquid:S1161ï":Add the "@Override" annotation above this method signature(¶­û‚
-csquid:HiddenFieldCheckç"@Rename "elementData" which hides the field declared at line 134.(–§Û
-=squid:S1659º
-" Declare "lo" on a separate line.(Ö£¶ìÿÿÿÿÿ
-asquid:S2583‚"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ
+Ysquid:S1161¡	":Add the "@Override" annotation above this method signature(¶­û‚8İ®Ãß-
 Bsquid:S2160j"+Override the "equals" method in this class.(†é’
+Ysquid:S1161ì	":Add the "@Override" annotation above this method signature(¾ 8İ®Ãß-
+Xsquid:S1161ğ":Add the "@Override" annotation above this method signature(¹æá58İ®Ãß-
+^squid:S1161ô":Add the "@Override" annotation above this method signature(ı½øÿÿÿÿ8İ®Ãß-
+^squid:S1161„
+":Add the "@Override" annotation above this method signature(ª÷‚µøÿÿÿÿ8İ®Ãß-
+Esquid:S1659ì
+"!Declare "mid" on a separate line.(Ö£¶ìÿÿÿÿÿ8İ®Ãß-
+Dsquid:S1659ì
+" Declare "lo" on a separate line.(Ö£¶ìÿÿÿÿÿ8İ®Ãß-
+hsquid:S2583´"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ8İ®Ãß-
+hsquid:S2583á"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ8İ®Ãß-
+hsquid:S2583Ä"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ8İ®Ãß-
+hsquid:S2583•
+"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ8İ®Ãß-
+vsquid:S3776ô"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ı½øÿÿÿÿ8İ®Ãß-
+k$squid:AssignmentInSubExpressionCheck	".Extract the assignment out of this expression.(½áöóüÿÿÿÿ8İ®Ãß-
+[squid:S2589Ó"7Remove this expression which always evaluates to "true"(÷ª»îúÿÿÿÿ8İ®Ãß-
+[squid:S2589’
+"7Remove this expression which always evaluates to "true"(÷ª»îúÿÿÿÿ8İ®Ãß-
+Ysquid:S1161¨":Add the "@Override" annotation above this method signature(œ÷¾ÿ8İ®Ãß-
+jsquid:HiddenFieldCheck¨	"@Rename "elementData" which hides the field declared at line 148.(¿Ó­ 8İ®Ãß-
+hsquid:HiddenFieldCheckı"@Rename "elementData" which hides the field declared at line 148.(©¬æÑşÿÿÿÿ
+lsquid:S1192Ğ"HDefine a constant instead of duplicating this literal "Index: " 3 times.(úÙĞ ûÿÿÿÿ8İ®Ãß-
+hsquid:S2583Ö"DChange this condition so that it does not always evaluate to "false"(Ó¯ß½úÿÿÿÿ8İ®Ãß-
+Xsquid:S1161ã":Add the "@Override" annotation above this method signature(µ´ˆ28İ®Ãß-
+jsquid:HiddenFieldCheckÖ"@Rename "elementData" which hides the field declared at line 148.(–§Û8İ®Ãß-

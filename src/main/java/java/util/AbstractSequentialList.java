@@ -65,12 +65,13 @@ package java.util;
  * @see AbstractCollection
  * @since 1.2
  */
-
+// 抽象顺序表 LinkedList的父类
 public abstract class AbstractSequentialList<E> extends AbstractList<E> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
+    // protected 构造函数
     protected AbstractSequentialList() {
     }
 
@@ -83,6 +84,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    // 通过迭代器返回， get(0)
     public E get(int index) {
         try {
             return listIterator(index).next();
@@ -110,10 +112,12 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      * @throws IllegalArgumentException      {@inheritDoc}
      * @throws IndexOutOfBoundsException     {@inheritDoc}
      */
+    // 子类会重写
     public E set(int index, E element) {
         try {
             ListIterator<E> e = listIterator(index);
             E oldVal = e.next();
+            // LinkedList内部类会重写
             e.set(element);
             return oldVal;
         } catch (NoSuchElementException exc) {
@@ -141,6 +145,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      * @throws IllegalArgumentException      {@inheritDoc}
      * @throws IndexOutOfBoundsException     {@inheritDoc}
      */
+    // 于指定位置添加元素 使用迭代器
     public void add(int index, E element) {
         try {
             listIterator(index).add(element);
@@ -166,6 +171,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws IndexOutOfBoundsException     {@inheritDoc}
      */
+    // 删除，也是调用迭代器
     public E remove(int index) {
         try {
             ListIterator<E> e = listIterator(index);
@@ -209,6 +215,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      * @throws IllegalArgumentException      {@inheritDoc}
      * @throws IndexOutOfBoundsException     {@inheritDoc}
      */
+    // 指定位置 添加全部
     public boolean addAll(int index, Collection<? extends E> c) {
         try {
             boolean modified = false;
@@ -235,6 +242,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      *
      * @return an iterator over the elements in this list (in proper sequence)
      */
+    // 不指定索引位置
     public Iterator<E> iterator() {
         return listIterator();
     }
@@ -249,5 +257,6 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
      *         sequence)
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    // 子类重写了 获取迭代器，指定索引
     public abstract ListIterator<E> listIterator(int index);
 }

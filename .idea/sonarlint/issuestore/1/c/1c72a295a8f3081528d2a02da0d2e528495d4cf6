@@ -1,5 +1,5 @@
 
+\"squid:ObjectFinalizeOverridenCheckì"-Do not override the Object.finalize() method.(ÂÄ†ñ
 Bsquid:S1452@"&Remove usage of generic wildcard type.(½§±Ëùÿÿÿÿ
 ™squid:S1186ì"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÂÄ†ñ
 isquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(ÔûÀ|8–™áüÚ-
-\"squid:ObjectFinalizeOverridenCheckì"-Do not override the Object.finalize() method.(ÂÄ†ñ

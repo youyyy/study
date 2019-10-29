@@ -161,3 +161,17 @@ P
  src/main/java/java/util/Set.java,9/a/9a5cbfe8fbe63cdd84f5a96ac8e583f4f0670414
 X
 (src/main/java/java/util/AbstractSet.java,2/2/222d9dc34a6b28264d7dcb92d706a9f36e20b3ab
+f
+6src/main/java/java/lang/IndexOutOfBoundsException.java,6/d/6d089e00cb1b9158c04e0e52fc3528fa69ac9876
+S
+#src/main/java/java/util/BitSet.java,c/7/c784c1ffd8eaaa9ca0f989dc6363a48956228858
+c
+3src/main/java/java/util/function/UnaryOperator.java,3/1/316157c8e9534293b50dd765f8dec1a6860e83fc
+c
+3src/main/java/java/util/AbstractSequentialList.java,1/5/15991fbd1c1912dc6d9f80cd43475e1472416ab4
+V
+&src/main/java/java/lang/Cloneable.java,0/d/0df3439d95b2446f2ff253badbf90722704aca73
+R
+"src/main/java/java/util/Deque.java,3/1/31c06d48e02b2c7225f3ad22a516fe5f6b872639
+W
+'src/main/java/java/util/LinkedList.java,9/3/936ecb5e803befb1d1c10d1fa3a23a2f95dc6019

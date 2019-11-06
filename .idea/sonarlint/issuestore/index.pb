@@ -175,3 +175,7 @@ R
 "src/main/java/java/util/Deque.java,3/1/31c06d48e02b2c7225f3ad22a516fe5f6b872639
 W
 'src/main/java/java/util/LinkedList.java,9/3/936ecb5e803befb1d1c10d1fa3a23a2f95dc6019
+X
+(src/main/java/java/io/ExpiringCache.java,e/7/e777749a09ba7b4e7a358546215339783b5796aa
+Z
+*src/main/java/java/util/LinkedHashMap.java,a/a/aac52ad3575da95727bb8fdb01a4c69e8b81dbf5

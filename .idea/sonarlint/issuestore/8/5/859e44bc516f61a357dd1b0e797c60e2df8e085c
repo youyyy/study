@@ -1,21 +1,21 @@
 
-Msquid:S1133©"5Do not forget to remove this deprecated code someday.(’ýœÀ
-hsquid:CommentedOutCodeLine§"<This block of commented-out lines of code should be removed.(„ŽÇèÿÿÿÿÿ
-Rsquid:S1133é"5Do not forget to remove this deprecated code someday.(Ü¡ó¶øÿÿÿÿ
-Msquid:S1133§"5Do not forget to remove this deprecated code someday.(®¦“
-Tsquid:S1197b"8Move the array designator from the variable to the type.(ÅÆè«úÿÿÿÿ
-Osquid:S1197^"8Move the array designator from the variable to the type.(­“«‚
-Usquid:S1197ð"8Move the array designator from the variable to the type.(£±œ´ûÿÿÿÿ
-Psquid:S1197Ó"8Move the array designator from the variable to the type.(‘ ¤á
-Ksquid:S1191"5Use classes from the Java API instead of Sun classes.(«‹ú3
-U
-squid:S106ƒ	"9Replace this use of System.out or System.err by a logger.(§½ŸÐûÿÿÿÿ
-P
-squid:S106…	"9Replace this use of System.out or System.err by a logger.(Îã­Ã
-Rsquid:S1133•	"5Do not forget to remove this deprecated code someday.(ø’¯©ýÿÿÿÿ
-Psquid:S1197Ý"8Move the array designator from the variable to the type.(äµÿ 
-U
-squid:S106·"9Replace this use of System.out or System.err by a logger.(·½¼³øÿÿÿÿ
-Usquid:S1197¿"8Move the array designator from the variable to the type.(÷åöéùÿÿÿÿ
-Psquid:S1197¬"8Move the array designator from the variable to the type.(íùÑå
-Psquid:S1197æ"8Move the array designator from the variable to the type.(áÄÌä
+Msquid:S1197"8Move the array designator from the variable to the type.(íùÑå
+Osquid:S1133"5Do not forget to remove this deprecated code someday.(Ü¡ó¶øÿÿÿÿ
+Rsquid:S1197"8Move the array designator from the variable to the type.(ÅÆè«úÿÿÿÿ
+Isquid:S1191"5Use classes from the Java API instead of Sun classes.(«‹ú3
+Rsquid:S1197"8Move the array designator from the variable to the type.(÷åöéùÿÿÿÿ
+Msquid:S1197"8Move the array designator from the variable to the type.(‘ ¤á
+Msquid:S1197"8Move the array designator from the variable to the type.(äµÿ 
+Jsquid:S1133"5Do not forget to remove this deprecated code someday.(®¦“
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(§½ŸÐûÿÿÿÿ
+Jsquid:S1133"5Do not forget to remove this deprecated code someday.(’ýœÀ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(Îã­Ã
+Rsquid:S1197"8Move the array designator from the variable to the type.(£±œ´ûÿÿÿÿ
+Msquid:S1197"8Move the array designator from the variable to the type.(­“«‚
+Osquid:S1133"5Do not forget to remove this deprecated code someday.(ø’¯©ýÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(„ŽÇèÿÿÿÿÿ
+Msquid:S1197"8Move the array designator from the variable to the type.(áÄÌä
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(·½¼³øÿÿÿÿ

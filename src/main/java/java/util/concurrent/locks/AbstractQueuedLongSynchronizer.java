@@ -57,6 +57,7 @@ import sun.misc.Unsafe;
  * @since 1.6
  * @author Doug Lea
  */
+// 同步队列，除了将关键变量（如许可证数量）的类型提升为long之外，其他地方与AbstractQueuedSynchronizer一样
 public abstract class AbstractQueuedLongSynchronizer
     extends AbstractOwnableSynchronizer
     implements java.io.Serializable {

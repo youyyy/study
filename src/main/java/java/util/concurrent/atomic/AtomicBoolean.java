@@ -47,10 +47,12 @@ import sun.misc.Unsafe;
  * @since 1.5
  * @author Doug Lea
  */
+// 布尔类型（原子性）
 public class AtomicBoolean implements java.io.Serializable {
     private static final long serialVersionUID = 4654671469794556979L;
     // setup to use Unsafe.compareAndSwapInt for updates
     private static final Unsafe unsafe = Unsafe.getUnsafe();
+    // 存储字段value在JVM中的偏移地址
     private static final long valueOffset;
 
     static {

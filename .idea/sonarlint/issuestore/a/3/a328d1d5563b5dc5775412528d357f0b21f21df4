@@ -1,18 +1,18 @@
 
-Msquid:S2065Ó"0Remove the "transient" modifier from this field.(ÜĞ¢€ÿÿÿÿÿ
-=squid:S1948"%Make "key" transient or serializable.(æàİÌ
-Hsquid:S2065Ò"0Remove the "transient" modifier from this field.(Úúş£
-=squid:S1948ü"%Make "key" transient or serializable.(æàİÌ
-osquid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(ëÊÕËüÿÿÿÿ8à›×ĞÜ-
-osquid:S3776é"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(İ¢êÍıÿÿÿÿ
-Wsquid:S1161±":Add the "@Override" annotation above this method signature(¦³üëûÿÿÿÿ
-^squid:S1161À":Add the "@Override" annotation above this method signature(Ş‚ÄÔıÿÿÿÿ8öÜÌÑÜ-
-Rsquid:S1161Ä":Add the "@Override" annotation above this method signature(Û¶¬å
-jsquid:S2975Ñ"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(™”” 
-nsquid:CommentedOutCodeLiner"<This block of commented-out lines of code should be removed.(´ûÎ”úÿÿÿÿ8áë€ĞÜ-
-Rsquid:S1161¼":Add the "@Override" annotation above this method signature(ûÄ•
 Dsquid:S1948‚"'Make "value" transient or serializable.(Š¥²şÿÿÿÿ
+Rsquid:S1161¼":Add the "@Override" annotation above this method signature(ûÄ•
 bsquid:S2147†"ECombine this catch with the one at line 516, which has the same body.(Ü–›×øÿÿÿÿ
-Dsquid:S1948ı"'Make "value" transient or serializable.(ÖÜİäøÿÿÿÿ
-msquid:S3038Í"P"entrySet" is defined in the "Map" interface and can be removed from this class.(›íûÉøÿÿÿÿ
+osquid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(ëÊÕËüÿÿÿÿ8à›×ĞÜ-
+Msquid:S2065Ó"0Remove the "transient" modifier from this field.(ÜĞ¢€ÿÿÿÿÿ
 Wsquid:S1161ö":Add the "@Override" annotation above this method signature(¦³üëûÿÿÿÿ
+Rsquid:S1161Ä":Add the "@Override" annotation above this method signature(Û¶¬å
+osquid:S3776é"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(İ¢êÍıÿÿÿÿ
+nsquid:CommentedOutCodeLiner"<This block of commented-out lines of code should be removed.(´ûÎ”úÿÿÿÿ8áë€ĞÜ-
+jsquid:S2975Ñ"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(™”” 
+Hsquid:S2065Ò"0Remove the "transient" modifier from this field.(Úúş£
+msquid:S3038Í"P"entrySet" is defined in the "Map" interface and can be removed from this class.(›íûÉøÿÿÿÿ
+Wsquid:S1161±":Add the "@Override" annotation above this method signature(¦³üëûÿÿÿÿ
+Dsquid:S1948ı"'Make "value" transient or serializable.(ÖÜİäøÿÿÿÿ
+^squid:S1161À":Add the "@Override" annotation above this method signature(Ş‚ÄÔıÿÿÿÿ8öÜÌÑÜ-
+=squid:S1948ü"%Make "key" transient or serializable.(æàİÌ
+=squid:S1948"%Make "key" transient or serializable.(æàİÌ

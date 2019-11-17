@@ -1381,7 +1381,7 @@ class Thread implements Runnable {
         } else {
             while (isAlive()) {
                 long delay = millis - now;
-                if (delay <= 0) {
+                if (delay <= 0) {// 如果执行等待了指定时间，那就不等了
                     break;
                 }
                 wait(delay);

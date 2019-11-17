@@ -267,6 +267,7 @@ public class ReentrantReadWriteLock
         /** Returns the number of shared holds represented in count  */
         static int sharedCount(int c)    { return c >>> SHARED_SHIFT; }
         /** Returns the number of exclusive holds represented in count  */
+        // 独占 计数
         static int exclusiveCount(int c) { return c & EXCLUSIVE_MASK; }
 
         /**
@@ -445,6 +446,7 @@ public class ReentrantReadWriteLock
                 "attempt to unlock read lock, not locked by current thread");
         }
 
+        // 申请"读"锁，形参unused没有用，因为申请"读"锁成功一次，就固定生产一张许可证
         protected final int tryAcquireShared(int unused) {
             /*
              * Walkthrough:
@@ -461,30 +463,60 @@ public class ReentrantReadWriteLock
              *    apparently not eligible or CAS fails or count
              *    saturated, chain to version with full retry loop.
              */
+            // 获取当前申请"读"锁的线程
             Thread current = Thread.currentThread();
+            // 获取许可证数量
             int c = getState();
+            // 获取独占锁（"写"锁）的许可证数量
             if (exclusiveCount(c) != 0 &&
-                getExclusiveOwnerThread() != current)
+                    // 如果存在"写"锁，进一步判断当前线程是否为"写"锁的持有者
+                    getExclusiveOwnerThread() != current)
+                // 如果是别的线程持有"写"锁，当前线程又去申请"读"锁，则申请失败
                 return -1;
+            // 获取共享锁（"读"锁）的许可证数量
             int r = sharedCount(c);
+            // 判断是否需要阻塞当前申请"读"锁的线程
             if (!readerShouldBlock() &&
+                // 判断许可证的数量是否超标
                 r < MAX_COUNT &&
+                /*
+                 * "写"锁许可证数量不变，"读"锁许可证数量增一
+                 * 在这儿如果有别的线程抢先更改了锁的状态，
+                 * 那么此处的设置将失败
+                 */
                 compareAndSetState(c, c + SHARED_UNIT)) {
                 if (r == 0) {
+                    // 记下首个申请"读"锁的线程
                     firstReader = current;
                     firstReaderHoldCount = 1;
                 } else if (firstReader == current) {
+                    // 首个线程再次申请读锁
                     firstReaderHoldCount++;
                 } else {
+                    /* 如果是非首个申请"读"锁的线程在申请"读"锁 */
+
+                    // 尝试中缓存中获取HoldCounter
                     HoldCounter rh = cachedHoldCounter;
+                    /*
+                     * 如果rh == null，说明第一次出现非首个申请"读"锁的线程在申请"读"锁
+                     * 此时，需要创建一个全新的HoldCounter，并缓存到cachedHoldCounter
+                     */
+                    /*
+                     * 如果rh.tid != getThreadId(current)
+                     * 说明缓存中的HoldCounter不是由当前申请"读"锁的线程创建的，换句话说，这个缓存是失效的
+                     * 那么，仍然需要重新创建一个全新的HoldCounter，并缓存到cachedHoldCounter
+                     */
                     if (rh == null || rh.tid != getThreadId(current))
                         cachedHoldCounter = rh = readHolds.get();
+                    // 缓存仍然有效，不过已经从当前线程剔除了，此时需要重新将其关联到当前线程
                     else if (rh.count == 0)
                         readHolds.set(rh);
+                    // 锁的重入次数递增
                     rh.count++;
                 }
                 return 1;
             }
+            // 当申请"读"锁的线程需要被阻塞时，需要到这里检查是否存在"重入"
             return fullTryAcquireShared(current);
         }
 

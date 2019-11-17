@@ -179,3 +179,11 @@ X
 (src/main/java/java/io/ExpiringCache.java,e/7/e777749a09ba7b4e7a358546215339783b5796aa
 Z
 *src/main/java/java/util/LinkedHashMap.java,a/a/aac52ad3575da95727bb8fdb01a4c69e8b81dbf5
+V
+&src/main/java/java/util/Hashtable.java,a/f/af2b4e850ec2395892f4ade099d459d669d97623
+W
+'src/main/java/java/util/Dictionary.java,1/5/1581c7bf44bd1dccfd390d9eab19bc163add5038
+X
+(src/main/java/java/util/Enumeration.java,a/1/a167da683bda7dee146232368b9750b09264132c
+l
+<src/main/java/java/util/concurrent/atomic/AtomicBoolean.java,2/0/20a5fba9cd21900dac59edf0360fbdd2f4387180

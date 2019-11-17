@@ -47,6 +47,8 @@ package java.util.concurrent.locks;
  * @since 1.6
  * @author Doug Lea
  */
+// 同步队列的抽象父类
+// 就是一个简单的独占式同步器，持有被独占拥有的线程
 public abstract class AbstractOwnableSynchronizer
     implements java.io.Serializable {
 
@@ -61,6 +63,7 @@ public abstract class AbstractOwnableSynchronizer
     /**
      * The current owner of exclusive mode synchronization.
      */
+    // 独占模式下的线程
     private transient Thread exclusiveOwnerThread;
 
     /**
@@ -70,6 +73,7 @@ public abstract class AbstractOwnableSynchronizer
      * {@code volatile} field accesses.
      * @param thread the owner thread
      */
+    // 设置 独占线程
     protected final void setExclusiveOwnerThread(Thread thread) {
         exclusiveOwnerThread = thread;
     }
@@ -80,6 +84,7 @@ public abstract class AbstractOwnableSynchronizer
      * impose any synchronization or {@code volatile} field accesses.
      * @return the owner thread
      */
+    // 返回独占线程
     protected final Thread getExclusiveOwnerThread() {
         return exclusiveOwnerThread;
     }

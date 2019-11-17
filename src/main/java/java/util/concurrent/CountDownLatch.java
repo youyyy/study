@@ -153,6 +153,16 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  * @since 1.5
  * @author Doug Lea
  */
+/*
+ * 闭锁
+ *
+ * 初始化时，可以设置一定数量的闸门
+ * 只要存在闸门，线程申请闭锁的操作必然失败
+ * 换句话说，在闸门存在的情形下，所有申请闭锁的线程都会陷入阻塞
+ * 后续可以通过撤销闸门来唤醒阻塞线程
+ * 但是，必须等所有闸门都撤销后，所有等待的线程才能顺次被唤醒
+ * 这个过程就像开闸放水一样...
+ */
 public class CountDownLatch {
     /**
      * Synchronization control For CountDownLatch.

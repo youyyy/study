@@ -153,6 +153,15 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  * @since 1.5
  * @author Doug Lea
  */
+/*
+ * 信号量机制，适合多个线程一起工作，即在某个时间段，可以有多个线程同时持有锁（线程数量受许可证总量限制）
+ *
+ * 内部实现了两种锁：【共享-非公平锁】和【共享-公平锁】
+ *
+ * 初始化锁（同步队列）时，会生产一定数量的许可证
+ * 申请锁的过程，可以看做是借出许可证，线程拿到锁的控制权时，许可证总量会减少
+ * 释放锁的过程，可以看做是归还许可证，线程丧失锁的控制权时，许可证总量会增加
+ */
 public class Semaphore implements java.io.Serializable {
     private static final long serialVersionUID = -3222578661600680210L;
     /** All mechanics via AbstractQueuedSynchronizer subclass */

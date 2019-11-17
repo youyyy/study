@@ -56,6 +56,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
 
     // setup to use Unsafe.compareAndSwapInt for updates
     private static final Unsafe unsafe = Unsafe.getUnsafe();
+    // 内存地址偏移量
     private static final long valueOffset;
 
     static {
@@ -64,7 +65,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
                 (AtomicInteger.class.getDeclaredField("value"));
         } catch (Exception ex) { throw new Error(ex); }
     }
-
+    // 可见性
     private volatile int value;
 
     /**
@@ -72,6 +73,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
      *
      * @param initialValue the initial value
      */
+    // 构造方法 指定初始化值
     public AtomicInteger(int initialValue) {
         value = initialValue;
     }
@@ -79,6 +81,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
     /**
      * Creates a new AtomicInteger with initial value {@code 0}.
      */
+    // 默认构造函数
     public AtomicInteger() {
     }
 
@@ -106,6 +109,22 @@ public class AtomicInteger extends Number implements java.io.Serializable {
      * @param newValue the new value
      * @since 1.6
      */
+    // 最终设置为给定值
+    /**
+     * 这里抛出一个疑问？到底set（）和lazySet（）有什么区别？
+     * 1.首先set()是对volatile变量的一个写操作, 我们知道volatile的write
+     * 为了保证对其他线程的可见性会追加以下两个Fence(内存屏障)如下：
+     *   1.StoreStore 在intel cpu 不存在[写写]重排序
+     *   2.StoreLoad 这个是所有内存屏障里最耗性能的内存屏障相关参考Doug Lea大大的cookbook (http://g.oswego.edu/dl/jmm/cookbook.html)
+     * Doug Lea大大又说了, lazySet()省去了StoreLoad屏障, 只留下StoreStore
+     * 总结：set()和volatile具有一样的效果(能够保证内存可见性，能够避免指令重排序)，
+     * 但是使用lazySet不能保证其他线程能立刻看到修改后的值(有可能发生指令重排序)。
+     * 简单点理解：lazySet比set()具有性能优势，但是使用场景很有限。
+     * 在网上没有找到lazySet和set的性能数据对比，
+     * 而且CPU的速度很快的，应用的瓶颈往往不在CPU，
+     * 而是在IO、网络、数据库等。对于并发程序要优先保证正确性，
+     * 然后出现性能瓶颈的时候再去解决。因为定位并发导致的问题，往往要比定位性能问题困难很多。
+     */
     public final void lazySet(int newValue) {
         unsafe.putOrderedInt(this, valueOffset, newValue);
     }
@@ -116,6 +135,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
      * @param newValue the new value
      * @return the previous value
      */
+    // 以原子方式设置为给定值并返回旧值
     public final int getAndSet(int newValue) {
         return unsafe.getAndSetInt(this, valueOffset, newValue);
     }
@@ -154,6 +174,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
      *
      * @return the previous value
      */
+    // 原子性自增  用的最多
     public final int getAndIncrement() {
         return unsafe.getAndAddInt(this, valueOffset, 1);
     }

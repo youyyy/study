@@ -176,6 +176,7 @@ import java.util.Date;
  * @since 1.5
  * @author Doug Lea
  */
+// 条件对象接口，用于更精细地指导线程的同步行为
 public interface Condition {
 
     /**
@@ -228,6 +229,7 @@ public interface Condition {
      * @throws InterruptedException if the current thread is interrupted
      *         (and interruption of thread suspension is supported)
      */
+    // 使当前活跃的线程暂时陷入阻塞，禁止阻塞带有中断标记的线程
     void await() throws InterruptedException;
 
     /**
@@ -264,7 +266,8 @@ public interface Condition {
      * thrown (such as {@link IllegalMonitorStateException}) and the
      * implementation must document that fact.
      */
-    void awaitUninterruptibly();
+    // 使当前活跃的线程暂时陷入阻塞，允许阻塞带有中断标记的线程
+    void awaitUninterruptibly();// 不断等待
 
     /**
      * Causes the current thread to wait until it is signalled or interrupted,
@@ -355,6 +358,7 @@ public interface Condition {
      * @throws InterruptedException if the current thread is interrupted
      *         (and interruption of thread suspension is supported)
      */
+    // 使当前活跃的线程暂时陷入阻塞，禁止阻塞带有中断标记的线程，nanosTimeout为相对时间，用于设置超时
     long awaitNanos(long nanosTimeout) throws InterruptedException;
 
     /**
@@ -370,6 +374,7 @@ public interface Condition {
      * @throws InterruptedException if the current thread is interrupted
      *         (and interruption of thread suspension is supported)
      */
+    // 使当前活跃的线程暂时陷入阻塞，禁止阻塞带有中断标记的线程，time为相对时间，需经过unit处理，用于设置超时
     boolean await(long time, TimeUnit unit) throws InterruptedException;
 
     /**
@@ -447,6 +452,7 @@ public interface Condition {
      * @throws InterruptedException if the current thread is interrupted
      *         (and interruption of thread suspension is supported)
      */
+    // 使当前活跃的线程暂时陷入阻塞，禁止阻塞带有中断标记的线程，deadline为绝对时间，用于设置超时
     boolean awaitUntil(Date deadline) throws InterruptedException;
 
     /**
@@ -465,6 +471,7 @@ public interface Condition {
      * not held. Typically, an exception such as {@link
      * IllegalMonitorStateException} will be thrown.
      */
+    // 使一个被await()阻塞的线程重新投入运行
     void signal();
 
     /**
@@ -483,5 +490,6 @@ public interface Condition {
      * not held. Typically, an exception such as {@link
      * IllegalMonitorStateException} will be thrown.
      */
+    // 使当前所有被await()阻塞的线程重新投入运行
     void signalAll();
 }

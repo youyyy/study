@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec97499-e43b-4e9e-94bc-c757ac391f82" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12e0f8225581838e8fe7379cc411195ffa7ea795" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1929fcb712eb663cbd4e4636f1b2d92375b2acbd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/1929fcb712eb663cbd4e4636f1b2d92375b2acbd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c72a295a8f3081528d2a02da0d2e528495d4cf6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c72a295a8f3081528d2a02da0d2e528495d4cf6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/859e44bc516f61a357dd1b0e797c60e2df8e085c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/859e44bc516f61a357dd1b0e797c60e2df8e085c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/3/a328d1d5563b5dc5775412528d357f0b21f21df4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/3/a328d1d5563b5dc5775412528d357f0b21f21df4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/HashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/HashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/lang/Thread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/CountDownLatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/CountDownLatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/Semaphore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/Semaphore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/atomic/AtomicBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/atomic/AtomicBoolean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/atomic/AtomicInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/atomic/AtomicInteger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/AbstractOwnableSynchronizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/AbstractOwnableSynchronizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/AbstractQueuedSynchronizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/AbstractQueuedSynchronizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/Lock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/Lock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/ReentrantLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/ReentrantLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/ReentrantReadWriteLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/util/concurrent/locks/ReentrantReadWriteLock.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +52,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -55,6 +69,9 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -82,7 +99,10 @@
       <workItem from="1572524193072" duration="10000" />
       <workItem from="1572532441401" duration="2148000" />
       <workItem from="1572577380821" duration="12976000" />
-      <workItem from="1572835864585" duration="22731000" />
+      <workItem from="1572835864585" duration="23442000" />
+      <workItem from="1573034350593" duration="1665000" />
+      <workItem from="1573092326310" duration="982000" />
+      <workItem from="1573108820175" duration="57932000" />
     </task>
     <task id="LOCAL-00001" summary="Q">
       <created>1569836669666</created>
@@ -196,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572357380854</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="hashMap学习笔记，目前关于红黑树de操作先放一放。有点复杂">
+      <created>1573025673561</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1573025673561</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +281,7 @@
     <MESSAGE value="ArrayList学习笔记，最重要的是学到了modCount用于判断修改次数类似版本号，还有迭代器比较总要，以后的遍历操作尽量用迭代器，特别是有并发问题的时候" />
     <MESSAGE value="AbstractSequentialList,LinkedList的父类" />
     <MESSAGE value="链表的学习，主要让我理解的什么是对引用的修改。改了引用。" />
-    <option name="LAST_COMMIT_MESSAGE" value="链表的学习，主要让我理解的什么是对引用的修改。改了引用。" />
+    <MESSAGE value="hashMap学习笔记，目前关于红黑树de操作先放一放。有点复杂" />
+    <option name="LAST_COMMIT_MESSAGE" value="hashMap学习笔记，目前关于红黑树de操作先放一放。有点复杂" />
   </component>
 </project>
